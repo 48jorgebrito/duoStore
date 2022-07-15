@@ -1,7 +1,6 @@
 import './SectionProducts.css'
 import { useState, useEffect } from 'react';
 import Api from '../../../config/Api';
-import camisa from '../../images/flamengoBranca.jpg'
 export default function SectionProducts(){
  
     const [data, setData] = useState([])
