@@ -1,0 +1,28 @@
+.payBar{
+    width: 100%;
+    background-color: #282c31;
+    height: 100px;
+}
+.payBarContainer {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    
+}
+.icon{
+    display: flex;
+    align-items: center;
+}
+.iconDescroption{
+    padding: 0 15px ;
+    color: #797b7d;
+}
+.iconDescroption h3{
+     text-transform: uppercase;
+     color: #fff;
+
+}

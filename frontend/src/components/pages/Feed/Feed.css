@@ -1,0 +1,57 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.boxProduct{
+   width: 250px;
+   height: auto;
+   text-align: center;
+   border: 1px solid rgb(133, 131, 131);
+   margin: 10px; 
+   padding: 10px 0 ;
+}
+
+.boxProduct h1{
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: lighter;
+    margin: 10px 0 10px 0 ;
+  
+    
+}
+.boxProduct p{
+    font-size: 15px;
+    font-weight: lighter;
+    padding: 0;
+    
+    
+}
+.boxImage{
+    width: 100%;
+    height: 220px;
+    
+}
+.boxImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box-btn{ 
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.box-btn button{
+    font-size: 14px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.btnLink{
+    text-decoration: none;
+}

@@ -1,0 +1,111 @@
+.header{
+    width: 100%;
+    height: 100px;
+    background-color: #282c31;
+    display: flex;
+    align-items: center;
+}
+.header .container{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+
+.boxMenu{
+    display: flex;
+    align-items: center;
+    background-color: #282c31;
+    
+}
+.boxMenu label{
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    margin-left: 10px;
+    font-weight: 600;
+    
+}
+.boxMenu button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    color: #71cb1d;
+    background-color: #282c31;
+
+}
+.logo img{
+    width: 180px;
+    height: 70px;
+    cursor: pointer;
+    
+}
+
+.search{
+    background-color: #fff;
+    width: 400px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    
+}
+.search input{
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 90%;
+    padding: 0 20px;
+    font-size: 18px;
+}
+.search button{
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    color: #71cb1d;
+    font-size: 25px;
+    display: flex;
+}
+.account{
+    display: flex;
+    align-items: center;
+    background-color: #282c31;
+    
+}
+.account label{
+    font-size: 20px;
+    cursor: pointer;
+    color: #71cb1d;
+    margin-left: 10px;
+    font-weight: 600;
+}
+.account button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    color: #71cb1d;
+    background-color: #282c31;
+
+}
+.bag button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #282c31;
+
+}

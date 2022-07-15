@@ -1,0 +1,86 @@
+.Carrousel{
+    background-color: brown;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative;
+}
+.container{
+
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+
+    scroll-behavior: smooth;
+    
+
+    
+
+}
+.container::-webkit-scrollbar{
+    display: none;
+
+    
+}
+
+.boxImage{
+    background-color: brown;
+    width: 100%;
+    height: 450px;
+    margin: 0 auto;
+    flex: none;
+    
+    
+    
+}
+
+.boxImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    
+}
+
+
+.btnRight{
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+  
+}
+.btnLeft{
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+.btnLeft, .btnRight{
+    width: 40px;
+    height:450px ;
+    background-color: rgba(0, 0, 0, 0.589);
+    border: none;
+    cursor: pointer;
+    color: #71cb1d;
+    font-size: 30px;
+}
+.btnLeft:hover, .btnRight:hover{
+    background-color: rgba(0, 0, 0, 0.808);
+}
+
+
+
+@media (max-width: 1000px) {
+   .container, .Carrousel{
+    max-width: 600px;
+   }
+    .boxImage{
+        height: 250px;
+        max-width: 600px;
+    }
+}
+
