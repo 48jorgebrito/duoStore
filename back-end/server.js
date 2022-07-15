@@ -4,6 +4,7 @@ require('dotenv').config()
 const cors = require('cors')
 const app = express()
 const productRouter = require('./routes/productRoutes');
+const userRouter = require('./routes/userRoutes')
 const path = require('path')
 
 //APP USE
@@ -13,6 +14,7 @@ app.use('/files', express.static(path.resolve(__dirname, 'uploads')))
 
 //APP USE ROTAS
 app.use('/products', productRouter)
+app.use('/user', userRouter)
 
 
 

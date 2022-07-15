@@ -1,11 +1,11 @@
 import "./ProductPost.css"
 import { useForm } from "react-hook-form"
 import HeaderBack from "../../layout/HeaderBack/HeaderBack";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
-// IMPORTANDO O AXIOS 
-import axios from "axios";
+
+
 import Api from "../../config/Api";
 // IMPORTANDO O YUP RESOLVER PARA VALIDAR O FORMULARIO
 import { yupResolver } from '@hookform/resolvers/yup';
