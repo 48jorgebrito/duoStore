@@ -8,10 +8,10 @@ const User = require('../models/Users')
 router.post('/', async (req, res) => {
     const {nameUser, password} = req.body
     
-    const user = await User.findOne({nameUser})
+    const user = await User.findOne({nameUser, password})
     if(user) {
         return (
-            res.status(422).json({message: `User ${nameUser} already  exists.`})
+            res.status(422).json({users:user})
         )
     }
     
