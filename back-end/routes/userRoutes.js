@@ -1,24 +1,35 @@
 const express = require('express')
+const { create } = require('../models/Users')
 const router = express.Router()
 const User = require('../models/Users')
 
 // ROTA DE POST
-router.post('/', async (req, res) => {
-    const {user, password} = req.body
 
-    const users = {
-        user,
+router.post('/', async (req, res) => {
+    const {nameUser, password} = req.body
+    
+    const user = await User.findOne({nameUser})
+    if(user) {
+        return (
+            res.status(422).json({message: `User ${nameUser} already  exists.`})
+        )
+    }
+    
+    
+    const newUsers = {
+        nameUser,
         password
     }
 
-    await User.create(users)
-    .then(()=>{res.status(200).json({message: 'usuário cadastrado com sucesso'})})
+    await User.create(newUsers)
+    .then(()=>{res.status(200).json({user: newUsers})})
     .catch((error)=>{
         res.status(400).json({error:error})
 
     })
     
 } )
+ 
 
 // ROTA DE GET
 
