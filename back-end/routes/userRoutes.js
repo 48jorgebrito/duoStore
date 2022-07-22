@@ -7,10 +7,14 @@ const User = require('../models/Users')
 router.post('/', async (req, res) => {
     const {nameUser, password} = req.body
     
-    const user = await User.findOne({nameUser, password})
+    const user = await User.findOne({nameUser})
     if(user) {
         return (
+<<<<<<< HEAD
             res.status(200).json({user : user})
+=======
+            res.status(422).json({message: `User ${nameUser} already  exists.`})
+>>>>>>> parent of 85dee53 (aprimorando sistema de login)
         )
     } 
     res.json({message: "usuario não encontrado"})
