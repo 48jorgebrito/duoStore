@@ -1,4 +1,5 @@
 const express = require('express')
+const { create } = require('../models/Users')
 const router = express.Router()
 const User = require('../models/Users')
 
@@ -7,17 +8,25 @@ const User = require('../models/Users')
 router.post('/', async (req, res) => {
     const {nameUser, password} = req.body
     
-    const user = await User.findOne({nameUser})
+    const user = await User.findOne({nameUser, password})
     if(user) {
         return (
-<<<<<<< HEAD
-            res.status(200).json({user : user})
-=======
-            res.status(422).json({message: `User ${nameUser} already  exists.`})
->>>>>>> parent of 85dee53 (aprimorando sistema de login)
+            res.status(422).json({users:user})
         )
-    } 
-    res.json({message: "usuario não encontrado"})
+    }
+    
+    
+    const newUsers = {
+        nameUser,
+        password
+    }
+
+    await User.create(newUsers)
+    .then(()=>{res.status(200).json({user: newUsers})})
+    .catch((error)=>{
+        res.status(400).json({error:error})
+
+    })
     
 } )
  

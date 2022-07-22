@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { ApiTeste, createSession } from "../config/apiTeste"
+
 
 export const AuthContext = createContext()
 
@@ -19,22 +19,22 @@ useEffect(()=>{
     setLoading(false)
 },[])
 
-const login = async (nameUser, password) =>{
-    
-    const response = await createSession(nameUser, password)
-
-   console.log('login', response.data)
+const login = (nameUser, password) =>{
+   console.log('login auth', {nameUser, password})
  
    //api criar session
 
-   const loggedUser = response.data.user
+   const loggedUser = {
+    id: "123",
+    nameUser
+   }
 
    localStorage.setItem('user', JSON.stringify(loggedUser))
 
-   
+    if(password === "secret"){
         setUser(loggedUser)
         navigate('/')
-    
+    }
     
     
 }
