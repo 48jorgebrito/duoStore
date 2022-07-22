@@ -3,18 +3,16 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const cors = require('cors')
 const app = express()
-const productRouter = require('./src/routes/productRoutes');
-const userRouter = require('./src/routes/userRoutes')
-const path = require('path')
 
+const routes = require('./src/routes/routes')
+const path = require('path')
 //APP USE
 app.use(cors())
 app.use(express.json())
 app.use('/files', express.static(path.resolve(__dirname, 'uploads')))
 
-//APP USE ROTAS
-app.use('/products', productRouter)
-app.use('/users', userRouter)
+app.use(routes)
+
 
 
 
