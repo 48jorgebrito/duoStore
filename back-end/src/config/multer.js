@@ -11,7 +11,7 @@ module.exports = {
 
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.resolve(__dirname ,'..', 'uploads'))
+        cb(null, path.resolve(__dirname ,'..', '..','uploads'))
     },
     filename: (req, file, cb) => {
         const fileName =  uuidv4() + file.originalname

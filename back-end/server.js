@@ -14,7 +14,7 @@ app.use('/files', express.static(path.resolve(__dirname, 'uploads')))
 
 //APP USE ROTAS
 app.use('/products', productRouter)
-app.use('/user', userRouter)
+app.use('/users', userRouter)
 
 
 

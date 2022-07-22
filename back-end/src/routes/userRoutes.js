@@ -1,42 +1,19 @@
 const express = require('express')
 const { create } = require('../models/Users')
 const router = express.Router()
-const User = require('../models/Users')
+const UserController = require('../controllers/UserControler')
 
-// ROTA DE POST
 
-router.post('/', async (req, res) => {
-    const {nameUser, password} = req.body
-    
-    const user = await User.findOne({nameUser, password})
-    if(user) {
-        return (
-            res.status(422).json({users:user})
-        )
-    }
-    
-    
-    const newUsers = {
-        nameUser,
-        password
-    }
 
-    await User.create(newUsers)
-    .then(()=>{res.status(200).json({user: newUsers})})
-    .catch((error)=>{
-        res.status(400).json({error:error})
 
-    })
-    
-} )
- 
+// ROTAS USERS
 
-// ROTA DE GET
+router.get('/', UserController.list)
+router.get('/:id', UserController.show)
+router.post('/', UserController.create )
+router.put('/:id', UserController.update)
+router.delete('/:id', UserController.destroy)
 
-router.get('/', async (req, res)=>{
-    const results = await User.find()
-
-    res.status(200).json(results)
-})
+// ROTAS PRODUCTS
 
 module.exports = router
