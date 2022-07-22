@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router()
-const Product = require('../models/Products')
+const Product = require('../config/models/Products')
 
 //CONFUGURANDO O MULTER
 const multer  = require('multer')

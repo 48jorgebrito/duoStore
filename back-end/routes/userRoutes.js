@@ -1,5 +1,4 @@
 const express = require('express')
-const { create } = require('../models/Users')
 const router = express.Router()
 const User = require('../models/Users')
 
@@ -11,22 +10,10 @@ router.post('/', async (req, res) => {
     const user = await User.findOne({nameUser, password})
     if(user) {
         return (
-            res.status(422).json({users:user})
+            res.status(200).json({user : user})
         )
-    }
-    
-    
-    const newUsers = {
-        nameUser,
-        password
-    }
-
-    await User.create(newUsers)
-    .then(()=>{res.status(200).json({user: newUsers})})
-    .catch((error)=>{
-        res.status(400).json({error:error})
-
-    })
+    } 
+    res.json({message: "usuario não encontrado"})
     
 } )
  

@@ -5,3 +5,7 @@ const Api = axios.create({
 })
 export default Api
 
+export const createdUser = async(nameUser, password ) => {
+    return Api.post("/user", (nameUser, password))
+    
+}
