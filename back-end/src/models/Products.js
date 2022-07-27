@@ -10,13 +10,13 @@ const Products = new mongoose.Schema({
     sex: String,
     price: Number,
     url: String,
-    key: String
+    filename: String
     
 })
 
 Products.pre('remove', function() {
   return(
-    promisify(fs.unlink)(path.resolve(__dirname ,'..', 'uploads', this.key))
+    promisify(fs.unlink)(path.resolve(__dirname ,'..', '..', 'uploads', this.filename))
   )
     
 })

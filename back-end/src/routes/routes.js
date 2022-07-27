@@ -24,6 +24,6 @@ router.get('/products', ProductsController.list)
 router.get('/products/:id' , ProductsController.show)
 router.patch('/products/:id' , multer(multerConfig).single('file') , ProductsController.update)
 router.delete('/products/:id', ProductsController.destroy)
-
+ 
 
 module.exports = router

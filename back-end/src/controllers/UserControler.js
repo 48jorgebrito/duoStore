@@ -1,4 +1,5 @@
 const User = require('../models/Users')
+const bcrypt = require("bcryptjs")
 
 module.exports = {
     async list(req, res){
@@ -37,16 +38,21 @@ module.exports = {
     async create(req, res){
         try{
             const {nameUser, password} = req.body
-            const user = await User.findOne({nameUser, password})
+            const user = await User.findOne({nameUser})
             if(user) {
                 return (
                     res.status(402).json({messagge:`o Usuario  ${nameUser} ja foi cadastrado`})
                 )
             }
+            // create hash password 
+            const salt = bcrypt.genSaltSync(10)
+            const passwordHash = await bcrypt.hashSync(password, salt)
+
             const newUsers = await User.create({
                 nameUser,
-                password
+                password: passwordHash
             })
+            
             res.status(200).json(newUsers)
         }
         catch(error){

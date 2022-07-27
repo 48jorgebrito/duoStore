@@ -12,7 +12,7 @@ module.exports ={
         console.log("selecione uma imagem")
         return
     }
-    const {filename : key} = req.file
+    const {filename : key, filename} = req.file
     const url = `http://localhost:8081/files/${key}`
     
     const product = { 
@@ -21,7 +21,7 @@ module.exports ={
         sex,
         price, 
         url,
-        key
+        filename
     }
     if(!name || !size || !sex || !price ){
         res.status(500).json({message: 'precisa preencher todos os campos'})

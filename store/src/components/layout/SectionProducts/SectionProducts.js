@@ -1,6 +1,8 @@
 import './SectionProducts.css'
 import { useState, useEffect } from 'react';
 import Api from '../../../config/Api';
+
+
 export default function SectionProducts(){
  
     const [data, setData] = useState([])
