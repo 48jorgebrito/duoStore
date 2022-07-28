@@ -1,6 +1,5 @@
 const User = require('../models/Users')
-const bcrypt = require("bcryptjs")
-
+const authHash = require('../services/PasswordHash')
 module.exports = {
     async list(req, res){
         try{
@@ -21,7 +20,7 @@ module.exports = {
     async show(req, res){
         try{
             const {id} = req.params
-            const user = await User.findById({_id: id})
+            const user = await User.findById(id)
 
             if(!user){
                 return res.status(402).json({message: " este Usuario não existe"})
@@ -45,8 +44,7 @@ module.exports = {
                 )
             }
             // create hash password 
-            const salt = bcrypt.genSaltSync(10)
-            const passwordHash = await bcrypt.hashSync(password, salt)
+           const passwordHash = await authHash.createPassword(password)
 
             const newUsers = await User.create({
                 nameUser,
@@ -68,14 +66,18 @@ module.exports = {
             const {nameUser, password} = req.body
             
             
-            const user = await User.findById({_id : id})
+            const user = await User.findById(id)
 
             if(!user){
                 return res.status(404).json({message: 'usuario não existe'})
+               
             }
+             // create hash password 
+             const passwordHash = await authHash.createPassword(password)
+
             await User.updateOne({
                 nameUser,
-                password
+                password: passwordHash
                 
             })
 
@@ -90,7 +92,7 @@ module.exports = {
     async destroy(req, res){
         try{
             const {id} = req.params
-            const user = await User.findById({_id : id})
+            const user = await User.findById(id)
            
             if(!user){
                 return res.status(404).json({message: 'usuario não existe'})
