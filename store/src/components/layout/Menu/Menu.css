@@ -1,0 +1,44 @@
+.containerMenu{
+    font-style: italic;
+    position: fixed;
+    transition: .5s ease-in-out;
+    z-index: 1000;
+    top: 0;
+    
+}
+.teste{
+    left: -100%;
+    transition: .5s;
+}
+.containerMenu h2{
+    cursor: pointer;
+    
+}
+.bodyMenu{
+    width: 300px;
+    height: 100vh;
+    background-color:#282c31;
+}
+.headerMenu{
+    color: #71cb1d;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.301);
+    padding: 15px 25px ;
+    align-items: center;
+    
+}
+.nav{
+    padding: 15px 25px ; 
+    color: rgb(236, 235, 235);
+    font-weight: 600;
+    font-size: 20px;
+    
+}
+.nav ul li{
+    padding:  5px 0;
+    cursor: pointer;
+}
+.nav ul li:hover{
+    color: rgb(180, 179, 179);
+}

@@ -1,10 +1,9 @@
 import "./Login.css"
 import { useForm } from "react-hook-form"
-//import {useNavigate } from "react-router-dom";
-import Api from "../../config/Api";
+
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 import { AuthContext } from "../../context/auth";
 
@@ -21,7 +20,7 @@ export default function Login(){
         resolver:yupResolver(validationPost)
     })
 
-    const {authenticated, login} = useContext(AuthContext)
+    const {authenticated, login} = useContext(AuthContext) 
 
 
   
@@ -30,7 +29,7 @@ export default function Login(){
         const nameUser = data.nameUser
         const password = data.password 
         
-        console.log("onSubmit", {nameUser, password})
+        
 
         login(nameUser, password)
 

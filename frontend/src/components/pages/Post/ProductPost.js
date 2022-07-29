@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form"
 import HeaderBack from "../../layout/HeaderBack/HeaderBack";
 import { useNavigate } from 'react-router-dom';
 
+import {api} from "../../config/apiAuth";
 
 
 
-import Api from "../../config/Api";
 // IMPORTANDO O YUP RESOLVER PARA VALIDAR O FORMULARIO
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -33,7 +33,7 @@ export default function ProductPost(){
     
     
   const onSubmit = async (data) =>{
-
+    
     const formData = new FormData()
     
     
@@ -42,7 +42,7 @@ export default function ProductPost(){
     formData.append('sex', data.sex)
     formData.append('price', data.price)
     formData.append('file' , data.file[0])
-    await Api.post('/products', formData).then(()=>{
+    await api.post('/products', formData).then(()=>{
        
         navigate('/')
     }).catch((error)=>{

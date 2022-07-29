@@ -11,3 +11,6 @@ body{
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+li{
+  list-style: none;
+}

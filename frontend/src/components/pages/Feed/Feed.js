@@ -4,9 +4,9 @@ import apiReq from "../../apiReq";
 import { useEffect, useState } from "react";
 import Header from '../../layout/Header/Header'
 import { Link } from "react-router-dom";
-import axios from "axios";
 
-import camisa from '../../images/camisa-atleM.jpeg'
+import {api} from "../../config/apiAuth"
+
 
 
 export default function Feed(){
@@ -19,12 +19,12 @@ export default function Feed(){
            setProducts(listProduct.list)
             
         }
-        console.log(products)
+        
         loadAll()
     },[])
     
     function deleteProduct(id){
-        axios.delete(`http://localhost:8081/products/${id}`)
+        api.delete(`/products/${id}`)
 
         setProducts(products.filter(products => products._id !== id))
     }

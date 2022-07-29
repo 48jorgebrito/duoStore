@@ -4,7 +4,8 @@ import HeaderBack from "../../layout/HeaderBack/HeaderBack";
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 // IMPORTANDO O AXIOS 
-import axios from "axios";
+import {api} from "../../config/apiAuth"
+
 // IMPORTANDO O YUP RESOLVER PARA VALIDAR O FORMULARIO
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -30,7 +31,7 @@ export default function Edit(){
     })
     
     //ATUALIZANDO PRODUTOS COM O AXIOS
-    const addPost = data => axios.patch(`http://localhost:8081/products/${id}`, data).then(()=>{
+    const addPost = data => api.patch(`/products/${id}`, data).then(()=>{
         console.log("produto atualizado com sucesso")
         navigate('/')
     }).catch((error)=>{
@@ -41,11 +42,9 @@ export default function Edit(){
     //PASSANDO AS INFORMAÇÕES DO PRODUTO PARA O INPUT COM O AXIOS E RESET (REACT-ROUTER-DOM)
     const { id } = useParams()
     useEffect(()=>{
-        axios.get(`http://localhost:8081/products/${id}`).then((response)=>{
+        api.get(`/products/${id}`).then((response)=>{
         reset(response.data)
-        
-
-        })
+    })
 
     }, [])
     
