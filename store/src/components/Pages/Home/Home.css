@@ -1,0 +1,6 @@
+.HomeContainer{
+    background-image: url('../../images/fundoPreto.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

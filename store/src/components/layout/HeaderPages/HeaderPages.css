@@ -1,0 +1,14 @@
+.HeaderPages{
+    width: 100%;
+    height: 150px;
+    background-color: #282c31;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:  0 40px;
+    
+}
+.ContactData{
+    color: #fff;
+    font-size: 19px;
+}

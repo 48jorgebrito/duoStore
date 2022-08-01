@@ -23,6 +23,7 @@
     background-color: #282c31;
     
 }
+
 .boxMenu label{
     font-size: 20px;
     cursor: pointer;
@@ -31,6 +32,9 @@
     margin-left: 10px;
     font-weight: 600;
     
+}
+.boxMenu label:hover{
+    color: rgba(255, 255, 255, 0.664);
 }
 .boxMenu button{
     display: flex;
@@ -42,6 +46,9 @@
     color: #71cb1d;
     background-color: #282c31;
 
+}
+.boxMenu button:hover{
+    color: #71cb1d9d;
 }
 .logo img{
     width: 180px;
@@ -79,8 +86,8 @@
 .account{
     display: flex;
     align-items: center;
-    background-color: #282c31;
-    
+    background-color: #282c31;    
+    text-decoration: none;
 }
 .account label{
     font-size: 20px;

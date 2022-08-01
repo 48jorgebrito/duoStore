@@ -5,12 +5,19 @@ import { RiUser3Fill} from "react-icons/ri"
 import {BsFillBagCheckFill} from 'react-icons/bs'
 import Logo from "../../images/DuoLogo.png"
 
+import {  useContext } from "react"
+import { MenuContext } from "../../Context/MenuContext"
+import {Link} from 'react-router-dom'
+
 export default function Headers(){
+
+    const {ActiveMenu} = useContext(MenuContext)
+
     return(
         <div className='header'>
             <div className='container'>
                 
-                <div className='boxMenu'>
+                <div className='boxMenu' onClick={ActiveMenu}>
                     <button name='btnMenu'><GiHamburgerMenu/></button>
                     <label htmlFor='btnMenu'>Menu</label>
                 </div> 
@@ -25,14 +32,16 @@ export default function Headers(){
                     <button><AiOutlineSearch/></button>
                 </div>
                
-                <div className='account'>
+                
+                <Link className='account' to="/login">
                     <button  name='btnUser'><RiUser3Fill/></button>
                     <label htmlFor='btnUser'>MINHA CONTA</label>
-                </div>
+                </Link>
                 
-                <div className='bag'>
+                
+                <Link className='bag' to='/bag'>
                     <button><BsFillBagCheckFill/></button>
-                </div>
+                </Link>
 
             </div>
 

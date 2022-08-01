@@ -1,15 +1,18 @@
 .containerMenu{
     font-style: italic;
     position: fixed;
+    left: -100%;
     transition: .5s ease-in-out;
     z-index: 1000;
     top: 0;
+    transition:.5s;
+  
     
 }
-.teste{
-    left: -100%;
-    transition: .5s;
+.ActiveMenu{
+    left: 0;
 }
+
 .containerMenu h2{
     cursor: pointer;
     
@@ -27,6 +30,9 @@
     padding: 15px 25px ;
     align-items: center;
     
+}
+.headerMenu:hover{
+    color: #71cb1d9d;
 }
 .nav{
     padding: 15px 25px ; 

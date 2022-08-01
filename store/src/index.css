@@ -5,12 +5,7 @@
   box-sizing: border-box;
   font-family: 'Rajdhani', sans-serif;
 }
-body{
-  background-image: url('../src/components/images/fundoPreto.webp');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
+
 li{
   list-style: none;
 }
