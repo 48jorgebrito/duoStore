@@ -1,0 +1,42 @@
+.CadastroContainer{
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+
+}
+.CadastroContainer input, .CadastroContainer select{
+    outline-color: #71cb1d;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    
+}
+.BoxUser{
+    display: flex;
+    justify-content: space-between;
+}
+.DataLeft, .DataRight{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 48%;
+}
+.Email, .Password{
+    text-align: left;
+}
+.BtnCadastro{
+    font-size: 20px;
+    color: #fff;
+    background-color: #71cb1d;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.BtnCadastro:hover{
+    background-color: #71cb1d9d;
+}

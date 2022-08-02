@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Home from './components/Pages/Home/Home'
 import Login from './components/Pages/Login/Login'
 import Bag from './components/Pages/Bag/Bag';
+import Cadastro from './components/Pages/Cadastro/Cadastro';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/bag' element={<Bag/>}/>
+          <Route path='/cadastro' element={<Cadastro/>}/>
         </Routes>
       </Router>
 
