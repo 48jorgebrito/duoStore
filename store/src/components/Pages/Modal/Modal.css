@@ -1,0 +1,28 @@
+.ModalContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding-top: 100px;
+}
+.ImgConfim{
+    font-size: 60px;
+    color: #71cb1d;
+}
+.ModalContainer h1{
+    font-weight: 600;
+    padding-bottom: 40px;
+}
+.BtnModal{
+    font-size: 20px;
+    color: #fff;
+    background-color: #71cb1d;
+    padding: 10px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.BtnModal:hover{
+    background-color: #71cb1d9d;
+}

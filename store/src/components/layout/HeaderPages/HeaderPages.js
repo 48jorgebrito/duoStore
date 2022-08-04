@@ -5,7 +5,7 @@ export default function HeaderPages(){
     return(
         <div className='HeaderPages'>
             <Link className='logo' to='/'>
-                <img src={Logo}/>
+                <img src={Logo} alt='logo'/>
             </Link>
             <div className='ContactData'>
                 <p>(98) 98785-3267</p>

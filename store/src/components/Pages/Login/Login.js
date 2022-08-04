@@ -2,7 +2,10 @@ import './Login.css'
 import HeaderPages from '../../layout/HeaderPages/HeaderPages'
 import { AiOutlineUser } from "react-icons/ai"
 import { Link } from 'react-router-dom'
+import FooterPage from '../../layout/FooterPage/FooterPage'
 export default function UserLogin(){
+
+    
     return(
         <div className='Login'>
                 <HeaderPages/>
@@ -23,6 +26,7 @@ export default function UserLogin(){
                     <button type='submit'>Entrar</button>
                 </div>
             </div>
+            <FooterPage/>
         </div>
     )
 }

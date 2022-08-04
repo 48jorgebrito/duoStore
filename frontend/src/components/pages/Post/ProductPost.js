@@ -42,6 +42,7 @@ export default function ProductPost(){
     formData.append('sex', data.sex)
     formData.append('price', data.price)
     formData.append('file' , data.file[0])
+    
     await api.post('/products', formData).then(()=>{
        
         navigate('/')

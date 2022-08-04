@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken")
 const User = require('../models/Users')
 const passwordHash = require('../services/PasswordHash')
-const bcrypt = require('bcryptjs')
 const secret = "ramiro13546"
 
 

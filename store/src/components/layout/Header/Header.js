@@ -23,7 +23,7 @@ export default function Headers(){
                 </div> 
                
                 <div className='logo'>
-                    <img src={Logo}/>
+                    <img src={Logo} alt='logo'/>
                     
                 </div>
                

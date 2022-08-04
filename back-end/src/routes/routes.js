@@ -12,8 +12,10 @@ const authRoutes = require('../middlewares/auth')
 
 
 
-    // ROTAS PUBLICAS
+
+// ROTAS PUBLICAS
 router.post('/sessions', SessinController.create)
+
     // ROTAS PRODUCTS PUBLICAS
 router.get('/products', ProductsController.list)
 router.get('/products/:id' , ProductsController.show)

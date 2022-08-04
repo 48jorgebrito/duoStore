@@ -6,22 +6,33 @@ import banerPromo3 from '../../images/banerPromo3.webp'
 import {HiChevronLeft} from 'react-icons/hi'
 import {HiChevronRight} from 'react-icons/hi'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 
 
 export default function Carrousel(){
+   
 
-const carrousel = useRef(0)
     
-    useEffect(()=>{
-        setInterval(()=>{
-            carrousel.current.scrollLeft += carrousel.current.offsetWidth 
-        },5000)
+    const carrousel = useRef()
 
-        setInterval(()=>{
-            carrousel.current.scrollLeft -= carrousel.current.offsetWidth * 2
-        },15000)
+    
+   
+    useEffect(()=>{
+
+            let  intervalLeft =  setInterval(()=>{
+              
+                    carrousel.current.scrollLeft += carrousel.current.offsetWidth   
+                    
+              },5000)
+       
+            let  intervalRight = setInterval(()=>{
+    
+                  carrousel.current.scrollLeft -= carrousel.current.offsetWidth * 2
+
+              },15000)
     })
+    
+    
 
         const leftClick = (e) => {
         e.preventDefault()

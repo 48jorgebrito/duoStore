@@ -5,12 +5,14 @@ const cors = require('cors')
 const app = express()
 
 const routes = require('./src/routes/routes')
+const routesUser = require('./src/routes/FinalUsers')
 const path = require('path')
 //APP USE
 app.use(cors())
 app.use(express.json())
 app.use('/files', express.static(path.resolve(__dirname, 'uploads')))
 
+app.use(routesUser)
 app.use(routes)
 
 

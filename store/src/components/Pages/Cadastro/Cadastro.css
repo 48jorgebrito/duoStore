@@ -11,9 +11,10 @@
     padding: 10px;
     text-align: left;
     font-size: 16px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-    
+    border: 1px solid #ccc;  
+}
+.CadastroContainer label{
+    margin-top: 20px;
 }
 .BoxUser{
     display: flex;
@@ -27,6 +28,7 @@
 }
 .Email, .Password{
     text-align: left;
+    margin-top: 20px;
 }
 .BtnCadastro{
     font-size: 20px;
@@ -36,7 +38,12 @@
     padding: 10px 40px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
 }
 .BtnCadastro:hover{
     background-color: #71cb1d9d;
+}
+.error-message{
+    color: red;
+    
 }

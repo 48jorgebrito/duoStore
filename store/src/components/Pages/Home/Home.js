@@ -5,9 +5,11 @@ import PayBar from '../../layout/PayBar/PayBar';
 import SectionProducts from '../../layout/SectionProducts/SectionProducts';
 import Menu from '../../layout/Menu/Menu';
 import { MenuProvider } from '../../Context/MenuContext';
+import { useState } from 'react';
 
 
 export default function Home() {
+   
     return(
         <div className='HomeContainer'>
         <MenuProvider>
