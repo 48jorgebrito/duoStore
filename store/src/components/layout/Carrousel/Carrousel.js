@@ -9,49 +9,50 @@ import {HiChevronRight} from 'react-icons/hi'
 import { useRef, useEffect, useState } from 'react'
 
 
-export default function Carrousel(){
-   
 
+export default function Carrousel(){
     
     const carrousel = useRef()
-
     
-   
+    const [stopCarrousel, SetStopCarrousel] = useState(0)
     useEffect(()=>{
-
-            let  intervalLeft =  setInterval(()=>{
-              
-                    carrousel.current.scrollLeft += carrousel.current.offsetWidth   
-                    
-              },5000)
        
-            let  intervalRight = setInterval(()=>{
-    
-                  carrousel.current.scrollLeft -= carrousel.current.offsetWidth * 2
-
-              },15000)
-    })
-    
-    
+        setTimeout(()=>{
+            
+                if(carrousel.current.scrollLeft >=  (2 * carrousel.current.offsetWidth)){
+                    carrousel.current.scrollLeft = 0
+                }else{
+                    carrousel.current.scrollLeft += carrousel.current.offsetWidth
+                }
+           
+       }, 5000)
+       
+    },[setInterval(()=>{SetStopCarrousel(stopCarrousel + 1) },5000)])
+      
 
         const leftClick = (e) => {
         e.preventDefault()
         
         carrousel.current.scrollLeft -= carrousel.current.offsetWidth
-
+       
     }
    
     const rightClick = (e) => {
         e.preventDefault()
+       
+        if(carrousel.current.scrollLeft >=  (2 * carrousel.current.offsetWidth)){
+            carrousel.current.scrollLeft = 0
+        }else{
+            carrousel.current.scrollLeft += carrousel.current.offsetWidth
+        }
         
-        carrousel.current.scrollLeft += carrousel.current.offsetWidth 
-        
+       
     }
    
     
     return(
         <div className='Carrousel' >
-           <div className='container 'ref={carrousel} >
+          <div className='container 'ref={carrousel} >
                 <div className='boxImage'>
                     <img src={banerPromo3} alt='image2'/>
                 </div>
@@ -67,7 +68,7 @@ export default function Carrousel(){
 
                 <button className='btnLeft' onClick={leftClick}><HiChevronLeft/></button>
                 <button className='btnRight' onClick={rightClick}><HiChevronRight/></button>
-            </div>
+    </div>
             
             
         </div>
