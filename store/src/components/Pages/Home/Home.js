@@ -6,6 +6,7 @@ import SectionProducts from '../../layout/SectionProducts/SectionProducts';
 import Menu from '../../layout/Menu/Menu';
 import { MenuProvider } from '../../Context/MenuContext';
 
+import FooterFeed from '../../layout/FooterFeed/FooterFeed';
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         <Carrousel/>
         <PayBar/>
         <SectionProducts/> 
+        <FooterFeed/>
         </div>
     )
 }
