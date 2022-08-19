@@ -14,7 +14,7 @@ export default function Carrousel(){
     
     const carrousel = useRef()
     
-    const [stopCarrousel, SetStopCarrousel] = useState(0)
+   /* const [stopCarrousel, SetStopCarrousel] = useState(0)
     useEffect(()=>{
        
         setTimeout(()=>{
@@ -27,7 +27,7 @@ export default function Carrousel(){
            
        }, 5000)
        
-    },[setInterval(()=>{SetStopCarrousel(stopCarrousel + 1) },5000)])
+    },[setInterval(()=>{SetStopCarrousel(stopCarrousel + 1) },5000)])*/
       
 
         const leftClick = (e) => {

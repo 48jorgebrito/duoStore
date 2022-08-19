@@ -5,7 +5,7 @@ import Login from './components/Pages/Login/Login'
 import Bag from './components/Pages/Bag/Bag';
 import Cadastro from './components/Pages/Cadastro/Cadastro';
 import Modal from './components/Pages/Modal/Modal';
-
+import Conta from './components/Pages/Conta/Consta';
 function App() {
   return (
     <div className="App">
@@ -17,6 +17,8 @@ function App() {
           <Route path='/bag' element={<Bag/>}/>
           <Route path='/cadastro' element={<Cadastro/>}/>
           <Route path='/modal' element={<Modal/>}/>
+          <Route path='/conta' element={<Conta/>}/>
+
         </Routes>
       </Router>
 

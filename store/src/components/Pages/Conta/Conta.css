@@ -1,0 +1,151 @@
+
+.CountContainer{
+    display: flex;
+    padding: 50px;
+    width: 100%;
+    color: rgb(99, 96, 96);
+    
+}
+.SideMenu{
+    width: 20%;
+    
+
+}
+.SideMenu .Logout{
+    padding-top: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+.SideMenu .Logout:hover{
+    color: rgba(99, 96, 96, 0.5);
+}
+.BoxIcons{
+    display: flex;
+    align-items:center ;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 25px 0;
+    cursor: pointer;
+    transition: .3s;
+}
+.BoxIcons:hover{
+    color: rgba(99, 96, 96, 0.5);
+    
+}
+.BoxIcons .Icons{
+    font-size: 30px;
+    margin-right: 7px;
+    
+}
+
+
+
+
+
+/*--------------------------------------------------*/
+.InfoCount{
+    border-left: 4px solid #71cb1d;
+    padding: 0 30px;
+    width: 80%;
+}
+.InfoCount h1{
+   font-weight: 600; 
+   color: rgb(39, 39, 39);
+}
+.InfoCountContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    
+}
+.UserDatas{
+    text-align: center;
+    width: 50%;
+    border-right: 1px solid rgb(211, 210, 210);
+    
+    
+}
+.UserAvatar{
+    color: #71cb1d;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.UserDatas p{
+    padding: 5px;
+}
+.BoxBtn{
+    margin-bottom: 30px;
+}
+.BoxBtn button{
+    font-weight: bold;
+    font-size: 15px;
+    padding: 15px 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: .3s;
+    color: rgb(39, 39, 39);
+    
+}
+.BoxBtn .EditData{
+    border-right: 1px solid rgb(211, 210, 210);
+}
+.BoxBtn button:hover{
+    color: #71cb1d;
+
+}
+.LineGreen{
+    width: 40px;
+    height: 4px;
+    background-color: #71cb1d;
+    margin: 0 auto;
+
+}
+.BoxEnderess{
+    margin-top: 30px;
+    
+}
+.BoxPedido{
+    width: 50%;
+    padding: 0 50px;
+    
+    
+}
+.BoxPedido .LineGreen{
+    margin: 10px 0;
+}
+.NumPedido{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 19px;
+    font-weight: 600;
+    padding-top: 10px;
+    
+}
+.DatePedido{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+.FormPagam{
+    border-bottom: 1px solid rgb(211, 210, 210);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.FormPagam .Status{
+    margin-top: 15px;
+    padding: 5px 20px;
+    background-color: rgb(236, 234, 234);
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+    
+}
