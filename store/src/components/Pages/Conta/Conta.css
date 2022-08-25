@@ -12,10 +12,13 @@
 
 }
 .SideMenu .Logout{
-    padding-top: 20px;
+    padding: 20px;
+    margin-left: -10px ;
     font-weight: 600;
     cursor: pointer;
     transition: .3s;
+    border: none;
+    background-color: transparent;
 }
 .SideMenu .Logout:hover{
     color: rgba(99, 96, 96, 0.5);

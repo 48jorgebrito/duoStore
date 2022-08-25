@@ -23,6 +23,8 @@ router.get('/products/:id' , ProductsController.show)
 
 //Middlleware auth of Routes
 router.use(authRoutes.authToken)
+
+
 // ROTAS PRIVADAS
 
 

@@ -25,7 +25,7 @@ const login = async (nameUser, password) =>{
     const response = await createSession(nameUser, password)
    
    
- 
+
    //api criar session
 
    const loggedUser = response.data.user
@@ -43,6 +43,8 @@ const login = async (nameUser, password) =>{
     
     
 }
+
+
 const logout = ()=>{
     console.log('logout')
     localStorage.removeItem('user')

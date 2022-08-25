@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form"
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { useContext } from "react";
 
+import { useContext } from "react";
 import { AuthContext } from "../../context/auth";
 
 const validationPost = yup.object({
@@ -23,17 +23,11 @@ export default function Login(){
     const {authenticated, login} = useContext(AuthContext) 
 
 
-  
-
     const onSubmit =  (data) => {
         const nameUser = data.nameUser
         const password = data.password 
         
-        
-
         login(nameUser, password)
-
-    
         
     }
     return(

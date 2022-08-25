@@ -2,9 +2,14 @@ import './Conta.css'
 import { AiOutlineUser } from "react-icons/ai"
 import { BiCabinet } from "react-icons/bi"
 import { FiUser } from "react-icons/fi"
-
+import { useContext } from 'react'
+import { AuthContext } from '../../Context/Auth'
 import HeaderPages from "../../layout/HeaderPages/HeaderPages"
+
 export default function Conta(){
+
+    const {logout} = useContext(AuthContext)
+
     return(
         <div className="Count">
             <HeaderPages/>
@@ -20,7 +25,7 @@ export default function Conta(){
                             <p>PEDIDOS</p> 
                         </div> 
                    
-                    <p className='Logout'>Sair da conta</p>
+                    <button className='Logout' onClick={logout}>Sair da conta</button>
                 </div>
 
                 <div className="InfoCount">
