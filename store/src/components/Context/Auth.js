@@ -21,20 +21,24 @@ export const AuthProvider = ({children}) => {
         setLoading(false)
     },[])
     
-    if(user){
-
-        const load = async()=>{
-    
-            await Api.get(`/cadastro/${user.id}`).then((response)=>{
-    
-                setDataUser(response.data)
-    
-                
-            })
-        }
+    useEffect(()=>{
         
-        load()
-    }
+        if(user){
+     
+             (async() => {
+         
+                 await Api.get(`/cadastro/${user.id}`).then((response)=>{
+         
+                     setDataUser(response.data)
+         
+                     
+                 })
+                 
+             })()
+             
+         }
+
+    })
     /* Função de Login*/
     const login = async (email, password) =>{
     

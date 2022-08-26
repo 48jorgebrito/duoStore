@@ -8,6 +8,7 @@ import Conta from '../Pages/Conta/Conta';
 
 import { useContext } from "react";
 import { AuthProvider, AuthContext } from "../Context/Auth";
+import { CartProvider } from "../Context/CartContext";
 
 export default function AppRoutes(){
 
@@ -28,17 +29,19 @@ export default function AppRoutes(){
         <div className="appRoutes">
             <Router>
                 <AuthProvider>
-                    <Routes>
-                        <Route path='/' element={ <Home/>}/>
-                        <Route path='/login' element={<Login/>}/>
-                        <Route path='/bag' element={<Bag/>}/>
-                        <Route path='/cadastro' element={<Cadastro/>}/>
-                        <Route path='/modal' element={<Modal/>}/>
-                        
-                        {/*Rotas Privadas */}
-                        <Route path='/conta' element={<Private> <Conta/> </Private> }/>
-                        
-                    </Routes>
+                    <CartProvider>
+                        <Routes>
+                            <Route path='/' element={ <Home/>}/>
+                            <Route path='/login' element={<Login/>}/>
+                            <Route path='/bag' element={<Bag/>}/>
+                            <Route path='/cadastro' element={<Cadastro/>}/>
+                            <Route path='/modal' element={<Modal/>}/>
+                            
+                            {/*Rotas Privadas */}
+                            <Route path='/conta' element={<Private> <Conta/> </Private> }/>
+                            
+                        </Routes>
+                    </CartProvider>
                 </AuthProvider>
             </Router>
         </div>

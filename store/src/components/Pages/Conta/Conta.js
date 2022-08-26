@@ -1,4 +1,5 @@
 import './Conta.css'
+import FooterPage from '../../layout/FooterPage/FooterPage'
 import { AiOutlineUser } from "react-icons/ai"
 import { BiCabinet } from "react-icons/bi"
 import { FiUser } from "react-icons/fi"
@@ -71,6 +72,7 @@ export default function Conta(){
                    </div>
                 </div>
             </div>
+            <FooterPage/>
         </div>
     )
 }

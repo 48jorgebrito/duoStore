@@ -2,47 +2,52 @@ import './SectionProducts.css'
 import { useState, useEffect } from 'react';
 import {Api} from '../../../config/Api';
 
+import { useContext } from 'react';
+import { CartContext } from '../../Context/CartContext';
 
 export default function SectionProducts(){
  
     const [data, setData] = useState([])
   
   useEffect( ()=>{
-    const loadAll = async ()=>{
+   
+    ( async ()=>{
       let listData =  await Api.get('/products')
          
            setData(listData.data)
-    }   
+    })() 
      
-   loadAll()
+   
         
     },[])
+
+    const{addProduct} = useContext(CartContext)
 
     return(
         <div className='sectionProducts'>
            <div className='productsContainer'>
                {
-               data.map((item, index) =>(
-                <div className='productsSingle' key={index}>
+               data.map((product) =>(
+                <div className='productsSingle' key={product._id} >
                    
                     <div className='image'>
-                        <img src={item.url} alt='camisa'/>
+                        <img src={product.url} alt='camisa'/>
                     </div>
                     
                     <div className='descriptionProducts'>
                        
-                        <h4>{item.name}</h4>
+                        <h4>{product.name}</h4>
                         
                         <div className='sizeSex'> 
-                            <p>Tamanho: {item.size}</p>
+                            <p>Tamanho: {product.size}</p>
                             <div className='line'></div>
-                            <p> {item.sex}</p>
+                            <p> {product.sex}</p>
                         </div>
 
-                        <h3>R$ {item.price}</h3>
+                        <h3>R$ {product.price}</h3>
 
                     </div>
-
+                    <button onClick={() => addProduct(product)}>COMPRAR</button>
                 </div>
 
                ))
