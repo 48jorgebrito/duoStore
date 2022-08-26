@@ -32,7 +32,7 @@ export default function Cadastro(){
 
     const onSubmit = async (data) => {
         
-        await Api.post('/cadastrar', data)
+        await Api.post('/cadastro', data)
         .then(()=>{
             navigate('/modal')
         })

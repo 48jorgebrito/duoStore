@@ -95,6 +95,8 @@
     color: #71cb1d;
     margin-left: 10px;
     font-weight: 600;
+    text-transform: uppercase;
+    font-style: italic;
 }
 .account button{
     display: flex;

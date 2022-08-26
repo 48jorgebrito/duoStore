@@ -2,13 +2,18 @@ import './Conta.css'
 import { AiOutlineUser } from "react-icons/ai"
 import { BiCabinet } from "react-icons/bi"
 import { FiUser } from "react-icons/fi"
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../Context/Auth'
 import HeaderPages from "../../layout/HeaderPages/HeaderPages"
-
+import { Api } from '../../../config/Api'
 export default function Conta(){
-
-    const {logout} = useContext(AuthContext)
+    
+    
+    const {logout, dataUser} = useContext(AuthContext)
+    
+   
+  
+    
 
     return(
         <div className="Count">
@@ -33,8 +38,8 @@ export default function Conta(){
                    <div className='InfoCountContainer'>
                         <div className='UserDatas'>
                             <div className='UserAvatar'>< AiOutlineUser/></div>
-                            <h4>Ramiro Brito</h4>
-                            <p>jorgerammirobrito19@gmail.com</p>
+                            <h4>{dataUser.firstName}</h4>
+                            <p>{dataUser.email}</p>
                             <div className='BoxBtn'>
                                 <button className='EditData'>Editar dados</button>
                                 <button className='EditPassword'>Alterar senha</button>

@@ -36,7 +36,7 @@ export default function UserLogin(){
             <form className='LoginContainer' onSubmit={handleSubmit(onSubmit)}>
                 <div className='LoginAvatar'>< AiOutlineUser/></div>
                     <h1>Seja bem-vindo(a)!</h1>
-                    <p>{String(authenticated)}</p>
+                    
                 <div className='DatasUser'>
                     <label>Insira seu E-mail</label>
                     <input type='email' {...register('email')}/>

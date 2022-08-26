@@ -1,13 +1,12 @@
 const jwt = require("jsonwebtoken")
-const User = require('../models/Users')
 const passwordHash = require('../services/PasswordHash')
 const secret = "ramiro13546"
-
+const FinalUser = require('../models/FinalUsers')
 
 module.exports = {
     async create(req, res){
-        const {nameUser, password} = req.body
-        const user = await User.findOne({nameUser})
+        const {email, password} = req.body
+        const user = await FinalUser.findOne({email})
         
         if(!user){
            return res.status(401).json({error: 'User/ password invalid'})
@@ -29,7 +28,7 @@ module.exports = {
        return res.json({
             user:{
                 id,
-                nameUser
+                email
 
             },
             token: jwt.sign({

@@ -5,14 +5,18 @@ import { RiUser3Fill} from "react-icons/ri"
 import {BsFillBagCheckFill} from 'react-icons/bs'
 import Logo from "../../images/DuoLogo.png"
 
-import {  useContext } from "react"
+import {  useContext, useEffect, useState } from "react"
 import { MenuContext } from "../../Context/MenuContext"
+import { AuthContext } from '../../Context/Auth'
+
 import {Link} from 'react-router-dom'
+import { Api } from '../../../config/Api'
 
 export default function Headers(){
 
     const {ActiveMenu} = useContext(MenuContext)
-
+    const {authenticated, dataUser} = useContext(AuthContext)
+    
     return(
         <div className='header'>
             <div className='container'>
@@ -33,9 +37,9 @@ export default function Headers(){
                 </div>
                
                 
-                <Link className='account' to="/login">
+                <Link className='account' to={authenticated ? "/conta" : "/login"}>
                     <button  name='btnUser'><RiUser3Fill/></button>
-                    <label htmlFor='btnUser'>MINHA CONTA</label>
+                    <label htmlFor='btnUser'>{authenticated ? dataUser.firstName : "minha conta" }</label>
                 </Link>
                 
                 
