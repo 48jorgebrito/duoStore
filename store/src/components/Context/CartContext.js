@@ -25,7 +25,7 @@ export const CartProvider = ({children}) =>{
         
         }
         
-        localStorage.setItem("cart", JSON.stringify(cart))
+       // localStorage.setItem("cart", JSON.stringify(cart))
    }
 
    const removeProduct = (product) =>{
