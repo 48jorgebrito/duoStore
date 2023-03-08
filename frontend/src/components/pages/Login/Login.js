@@ -7,6 +7,8 @@ import * as yup from "yup";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth";
 
+import Logo from "../../images/DuoLogo.png"
+
 const validationPost = yup.object({
     nameUser: yup.string().required("Informe o nome de usuário"),
     password: yup.string().required("Infome sua senha")
@@ -20,7 +22,7 @@ export default function Login(){
         resolver:yupResolver(validationPost)
     })
 
-    const {authenticated, login} = useContext(AuthContext) 
+    const {login} = useContext(AuthContext) 
 
 
     const onSubmit =  (data) => {
@@ -32,17 +34,23 @@ export default function Login(){
     }
     return(
         <div className="containerLogin">
-            <h1>Teste de Login</h1>
-            <p>{String(authenticated)}</p>
+
+            <div className='logo'>
+                <img src={Logo} alt='logo'/>    
+            </div>
+
+            
+           
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="userData">
-                    <label htmlFor="nameUser">Nome de usuário</label>
-                    <input  type="text" name="nameUser" id="nameUser" {...register("nameUser")}/>
+                    
+                    <input  type="text" name="nameUser" id="nameUser" placeholder="
+                    Nome de usuario"  {...register("nameUser")}/>
                     <p>{errors.nameUser?.message}</p>
                 </div>
                 <div className="userData">
-                    <label htmlFor="password">Senha</label>
-                    <input  type="password" name="password" id="password" {...register("password")}/>
+                   
+                    <input  type="password" name="password" id="password" placeholder="Senha" {...register("password")}/>
                     <p>{errors.password?.message}</p>
                 </div>
                 <button type="submit">Entrar</button>

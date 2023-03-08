@@ -1,0 +1,123 @@
+.CheckoutEnd{
+    width: 100%;
+    
+}
+.Box-progress{
+    height: 150px;
+}
+.Container-CheckoutEnd{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+.endEntrega{
+    width: 100%;
+    box-shadow: 0 0 15px 0 rgb(0 0 0 / 15%);
+    max-width: 600px;
+    text-align: center;
+    padding: 40px;
+}
+.endEntrega h1{
+    color: rgb(83, 82, 82);
+    font-size: 33px;
+    font-weight: 600;
+}
+.BoxCep{
+    background-color: rgb(241, 241, 241);
+    padding: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    margin: 30px 0;
+}
+.BoxCep input{
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline-color: #71cb1d;
+    text-align: center;
+    margin-top: 5px;
+}
+.BoxDataRecipient-2,
+.BoxDataRecipient-1{ 
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-weight: 600;
+    
+}
+.BoxDataRecipient-1 .DataRecipient{
+    
+    width: 48%;
+}
+.BoxDataRecipient-2 .DataRecipient{
+   
+    width: 32%;
+}
+.DataRecipient input{
+    font-size: 18px;
+    padding:  10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline-color: #71cb1d;
+    margin-top: 5px;
+    width: 100%;
+    
+}
+.city{
+    padding: 20px 0 ;
+    border-bottom: 1px solid #ccc;
+    
+}
+.btnConfirEnd{
+    width: 50%;
+    padding: 9px 0;
+    text-align: center;
+    border: #71cb1d;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #71cb1d;
+    color:#fff;
+    cursor: pointer;
+    margin: 30px 0 20px 0;
+}
+.btnCancel{
+    text-decoration: none;
+    color: rgb(83, 82, 82);
+}
+/*-------------inforUser-----------------------------*/
+.Box-inforUser{
+    width: 300px;
+}
+.inforUser{
+    border-bottom: 2px solid #71cb1d;
+    padding-bottom: 8px;
+    display: flex;
+}
+.endAvatar{
+    margin-right: 10px;
+    color: #71cb1d;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    
+}
+.inforItens{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ccc;
+    padding: 15px 0;
+}
+.caret{
+    color: #71cb1d;
+    cursor: pointer;
+}
+.inforItens strong{
+    color: rgb(83, 82, 82);
+}
+.inforTotal{
+    font-size: 20px;
+    
+}

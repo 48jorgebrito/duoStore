@@ -8,7 +8,9 @@ export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const [dataUser, setDataUser] = useState([])
-    
+    const [addresDataUser, setAddresDataUser] = useState([])
+    const [frete, Setfrete] = useState([])
+
     useEffect(() => {
         const recoveredUser = localStorage.getItem('user')
         const token = localStorage.getItem('token')
@@ -25,11 +27,17 @@ export const AuthProvider = ({children}) => {
         
         if(user){
      
-             (async() => {
+             ( async () => {
          
                  await Api.get(`/cadastro/${user.id}`).then((response)=>{
          
                      setDataUser(response.data)
+                     if(response.data.addres){
+                         setAddresDataUser(response.data.addres)
+                         
+                         return
+
+                     }
          
                      
                  })
@@ -72,8 +80,11 @@ const logout = () =>{
                 loading, 
                 login, 
                 logout,
-                dataUser
-                
+                dataUser,
+                addresDataUser,
+                Setfrete,
+                frete
+
             }
             }> 
             {children}

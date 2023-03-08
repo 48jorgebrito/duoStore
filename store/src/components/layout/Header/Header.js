@@ -5,17 +5,23 @@ import { RiUser3Fill} from "react-icons/ri"
 import {BsFillBagCheckFill} from 'react-icons/bs'
 import Logo from "../../images/DuoLogo.png"
 
-import {  useContext, useEffect, useState } from "react"
+import {  useContext} from "react"
 import { MenuContext } from "../../Context/MenuContext"
 import { AuthContext } from '../../Context/Auth'
+import { CartContext } from '../../Context/CartContext';
+
 
 import {Link} from 'react-router-dom'
-import { Api } from '../../../config/Api'
+
 
 export default function Headers(){
-
+    
     const {ActiveMenu} = useContext(MenuContext)
-    const {authenticated, dataUser} = useContext(AuthContext)
+    const {authenticated, dataUser,} = useContext(AuthContext)
+    const {cart} = useContext(CartContext)
+
+   // const getCart = localStorage.getItem("cart" )
+    //const cart = JSON.parse(getCart)
     
     return(
         <div className='header'>
@@ -45,6 +51,9 @@ export default function Headers(){
                 
                 <Link className='bag' to='/bag'>
                     <button><BsFillBagCheckFill/></button>
+                    <div className='BagBalloon'> 
+                        <p>{cart.length}</p>
+                    </div>
                 </Link>
 
             </div>

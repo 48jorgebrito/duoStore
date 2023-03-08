@@ -5,34 +5,51 @@
     justify-content: center;
     text-align: left;
     width: 400px;
-    background-color: bisque;
+    box-shadow: 0 0 15px 0 #71cb1d;
     padding: 30px;
     margin: 0 auto;
+    font-family: sans-serif;
     
 }
 h1{
     margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 22px;
+    
 }
 label{
     
     margin-bottom: 5px;
     cursor: pointer;
 }
+.Tamanho{
+    margin-top: 10px;
+}
 input{
-    margin-bottom: 15px;
+    
     padding: 5px 15px;
     font-size: 20px;
-    outline-color: rgb(42, 67, 175);
+    outline-color: #71cb1d;
+}
+.form p{
+    color: red;
+    font-size: 12px;
+    
 }
 
 select{
     margin-bottom: 15px;
     padding: 5px 15px;
     font-size: 18px;
-    outline-color: rgb(42, 67, 175);
+    outline-color: #71cb1d;
 }
 button{
     font-size: 20px;
     cursor: pointer;
     padding: 10px;
+    background-color: #71cb1d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
 }

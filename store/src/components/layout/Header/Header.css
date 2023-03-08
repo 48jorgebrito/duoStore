@@ -109,6 +109,10 @@
     background-color: #282c31;
 
 }
+.bag{
+
+    position: relative;
+}
 .bag button{
     display: flex;
     align-items: center;
@@ -119,4 +123,20 @@
     color: #fff;
     background-color: #282c31;
 
+}
+.BagBalloon{
+    background-color: #ff4747;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 15px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    border-radius: 10px;
+    width: 20px;
+}
+.BagBalloon p {
+    
 }

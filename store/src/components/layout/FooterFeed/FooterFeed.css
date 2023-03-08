@@ -1,10 +1,41 @@
 .ContainerFooterFeed{
     width: 100%;
-    height: 100px;
-    background-color: #282c31;
+    background-color: rgba(0, 0, 0, 0.425);
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 50px ;
+    margin-top: 50px;
+    border-top: 3px solid #282c31;
     
     
 }
+.socialNetworks {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.socialNetworks ul h3{
+   color: #71cb1d ;
+   text-transform: uppercase;
+   padding-bottom: 15px;
+}
+.socialNetworks ul li{
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    padding-bottom: 7px;
+    
+    
+}
+
+.liksFooter:hover{
+    color: rgb(192, 190, 190);
+    cursor: pointer;
+
+}
+.iconLiksFooter{
+    margin-right: 4px;
+    font-size: 20px;
+}
+

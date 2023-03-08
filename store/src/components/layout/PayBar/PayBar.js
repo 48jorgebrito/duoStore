@@ -1,6 +1,7 @@
 import './PayBar.css'
 import Boleto from '../../images/boleto.svg'
 import Credito from '../../images/credito.svg'
+import Pix from '../../images/pixBranco.svg'
 export default function PayBar(){
     return(
         <div className='payBar'>

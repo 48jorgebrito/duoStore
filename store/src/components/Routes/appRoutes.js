@@ -5,6 +5,9 @@ import Bag from '../../components/Pages/Bag/Bag';
 import Cadastro from '../../components/Pages/Cadastro/Cadastro';
 import Modal from '../../components/Pages/Modal/Modal';
 import Conta from '../Pages/Conta/Conta';
+import CheckoutEnd from '../Pages/CheckoutEnd/CheckoutEnd';
+import Frete from '../Pages/Frete/Frete';
+import Pagamento from '../Pages/Pagamento/Pagamento';
 
 import { useContext } from "react";
 import { AuthProvider, AuthContext } from "../Context/Auth";
@@ -39,6 +42,10 @@ export default function AppRoutes(){
                             
                             {/*Rotas Privadas */}
                             <Route path='/conta' element={<Private> <Conta/> </Private> }/>
+                            <Route path='/checkout/endereco/edit' element={<Private> <CheckoutEnd/> </Private> }/>
+                            <Route path='/checkout/endereco/frete' element={<Private> <Frete/> </Private> }/>
+                            <Route path='/checkout/pagamento' element={<Private> <Pagamento/> </Private> }/>
+                            
                             
                         </Routes>
                     </CartProvider>

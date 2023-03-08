@@ -19,12 +19,11 @@ const validationPost = yup.object({
     tel: yup.string().required("Campo obrigatorio"),
     password: yup.string().required("Campo obrigatorio"),
     
-
-    
-
   }).required();
 
+
 export default function Cadastro(){
+    
     let navigate = useNavigate()
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver:yupResolver(validationPost)
@@ -101,6 +100,7 @@ export default function Cadastro(){
                         <input type='password' name='password' {...register('password')}/>
                         <p className="error-message">{errors.password?.message}</p>
                     </div>
+                    
                     <button className='BtnCadastro' type='submit'>Cadastrar</button>
 
                 </form>

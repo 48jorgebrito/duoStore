@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const FinalUserController = require('../controllers/FinalUserController')
 const StoreSessionContoller = require('../controllers/StoreSessionContoller')
+const PedidosController = require('../controllers/PedidosController')
 const authRoutes = require('../middlewares/auth')
 
 router.post('/storesessions', StoreSessionContoller.create)
@@ -11,7 +12,13 @@ router.post('/cadastro', FinalUserController.create)
 
 router.get('/cadastro', FinalUserController.list )
 router.get('/cadastro/:id', FinalUserController.show )
-router.put('/cadastro/:id', FinalUserController.update )
+router.put('/cadastro/:id', FinalUserController.updateAddres)
 router.delete('/cadastro/:id', FinalUserController.destroy )
+
+router.get('/pedido/:user_id', PedidosController.list)
+router.post('/pedido/:user_id', PedidosController.create)
+
+
+
 
 module.exports = router

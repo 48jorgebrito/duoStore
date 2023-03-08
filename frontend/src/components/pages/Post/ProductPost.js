@@ -59,15 +59,15 @@ export default function ProductPost(){
         <div>
             <HeaderBack/>
            <form className="form" onSubmit={handleSubmit(onSubmit)}>
-            <h1>Adicione um produto</h1>
+            <h1>Adicionar produto</h1>
             <input required type="file" name="file" {...register("file")} />
             
 
             <label  htmlFor="name">Nome</label>
-            <input type="text" id="name" name ="name" {...register("name")}/>
+            <input  type="text" id="name" name ="name" {...register("name")}/>
             <p className="error-message">{errors.name?.message}</p>
 
-            <label  htmlFor="name">Tamanho</label>
+            <label  htmlFor="name" className="Tamanho">Tamanho</label>
             
             <select name="size" placeholder="Tamanho" {...register('size')}>
                 <option value="P">P</option>

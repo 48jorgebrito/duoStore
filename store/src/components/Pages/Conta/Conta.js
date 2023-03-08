@@ -3,14 +3,16 @@ import FooterPage from '../../layout/FooterPage/FooterPage'
 import { AiOutlineUser } from "react-icons/ai"
 import { BiCabinet } from "react-icons/bi"
 import { FiUser } from "react-icons/fi"
-import { useContext, useEffect, useState } from 'react'
+import { useContext} from 'react'
 import { AuthContext } from '../../Context/Auth'
 import HeaderPages from "../../layout/HeaderPages/HeaderPages"
-import { Api } from '../../../config/Api'
 export default function Conta(){
     
     
-    const {logout, dataUser} = useContext(AuthContext)
+    const {logout, dataUser, addresDataUser} = useContext(AuthContext)
+    
+    const{rua, numero, bairro, complemento, cep, cidade, uf } = addresDataUser
+    
     
    
   
@@ -48,7 +50,13 @@ export default function Conta(){
                             <div className='LineGreen'></div>
                             <div className='BoxEnderess'>
                                 <h3>Último endereço utilizado</h3>
-                                <p>Avenida Mato Grosso, S/N Condomínio athenas,</p>
+                                {addresDataUser.length == 0?
+                                    <p>Nenhum endereço cadastrado</p>
+
+                                 :  
+                                 
+                                    <p>{`Cep ${cep}, ${rua}, ${numero}, ${complemento}, ${bairro} - ${cidade}/${uf}, `}</p> 
+                                }
                             </div>
                         </div>
                         <div className='BoxPedido'>

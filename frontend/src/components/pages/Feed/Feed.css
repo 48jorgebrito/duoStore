@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    font-family: sans-serif;
 }
 .boxProduct{
    width: 250px;
@@ -25,6 +26,7 @@
     font-size: 15px;
     font-weight: lighter;
     padding: 0;
+
     
     
 }

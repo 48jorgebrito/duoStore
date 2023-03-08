@@ -1,0 +1,183 @@
+.CheckoutEnd{
+    width: 100%;
+    
+}
+.Container-CheckoutEnd{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+    padding-top: 50px;
+}
+.progressName{
+    width: 100%;
+    height: 2px ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 20px;}
+
+.progressBar{
+    width: 100%;
+    height: 2px ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 20px;
+
+    background: linear-gradient(
+        to right,
+        #71cb1d 67%,
+        #ccc 33%
+      );
+}
+.progressBar div{
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #71cb1d;
+    
+}
+
+.progressBar .progressSingle{
+
+    background-color: #ccc;
+}
+
+.inforEndEdit{
+    height: 100px;
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 40px;
+}
+.inforEndEdit-Left{
+    display: flex;
+    align-items: center;
+}
+.inforEndEdit-Icon{
+    font-size: 25px;
+    color: #71cb1d;
+    margin-right: 10px;
+}
+.inforEndEdit-Edit{
+    text-decoration: none;
+    color: #71cb1d;
+    font-weight: 600;
+}
+
+
+.endEntrega{
+    width: 100%;
+    box-shadow: 0 0 15px 0 rgb(0 0 0 / 15%);
+    max-width: 600px;
+    text-align: center;
+    padding: 40px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.endEntrega h1{
+    color: rgb(83, 82, 82);
+    font-size: 33px;
+    font-weight: 600;
+}
+.boxCheckbox{
+    width: 100%;
+    
+    
+}
+
+.checkboxSingle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding: 20px;
+    transition:.2s ;
+}
+
+.checkboxSingle:hover{
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.checkboxSingle:has(:checked){
+    background-color: #f0f0f0;
+}
+.checkboxSingle-left{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.checkboxSingle-input{
+    margin-right: 20px;
+}
+.checkboxSingle-input input[type="radio"]{
+    appearance: none;
+    border: 2px solid #ccc;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}
+.checkboxSingle-input input[type="radio"]:checked{
+    border:4px solid #71cb1d
+}
+.line{
+    height: 1px;
+    width: 100%;
+    background-color: #ccc;
+    margin-top: 20px;
+}
+.btnSubmit{
+    padding: 15px;
+    text-align: center;
+    border: #71cb1d;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #71cb1d;
+    color:#fff;
+    cursor: pointer;
+    margin: 30px 0 20px 0;
+}
+
+/*-------------inforUser-----------------------------*/
+.Box-inforUser{
+    width: 300px;
+}
+.inforUser{
+    border-bottom: 2px solid #71cb1d;
+    padding-bottom: 8px;
+    display: flex;
+}
+.endAvatar{
+    margin-right: 10px;
+    color: #71cb1d;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    
+}
+.inforItens{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ccc;
+    padding: 15px 0;
+}
+.caret{
+    color: #71cb1d;
+    cursor: pointer;
+}
+.inforItens strong{
+    color: rgb(83, 82, 82);
+}
+.inforTotal{
+    font-size: 20px;
+    
+}

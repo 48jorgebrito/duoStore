@@ -36,6 +36,7 @@ module.exports ={
             res.status(500).json({error: error})
         }
     },
+
     async list(req, res){
         try{
             const resultsProduct = await Product.find()
@@ -50,6 +51,7 @@ module.exports ={
             res.status(500).json({error: error})
         }
     },
+
     async show(req, res){
         const id = req.params.id 
          try{
@@ -66,7 +68,7 @@ module.exports ={
             res.status(500).json({error: error})
          }
         },
-        async update(req, res){
+    async update(req, res){
          try{
     
         const id = req.params.id

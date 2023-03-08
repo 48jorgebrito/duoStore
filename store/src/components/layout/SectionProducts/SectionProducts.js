@@ -44,10 +44,10 @@ export default function SectionProducts(){
                             <p> {product.sex}</p>
                         </div>
 
-                        <h3>R$ {product.price}</h3>
+                        <h3>{`R$ ${product.price},00`}</h3>
 
                     </div>
-                    <button onClick={() => addProduct(product)}>COMPRAR</button>
+                    <button onClick={() => addProduct(product)} className="BtnAddProduct">ADICIONAR A SACOLA</button>
                 </div>
 
                ))

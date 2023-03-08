@@ -8,7 +8,18 @@ const FinalUsers = new mongoose.Schema({
     sex: String,
     cpf: Number,
     tel: Number,
-    password: String
+    password: String,
+    addres: {
+        cep: Number,
+        destinat: String,
+        rua: String,
+        numero:Number,
+        complemento: String,
+        bairro: String, 
+        cidade: String,
+        uf: String
+    }
+    
     
 },
 {
