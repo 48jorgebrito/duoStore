@@ -17,9 +17,7 @@ export default function SectionProducts(){
            setData(listData.data)
     })() 
      
-   
-        
-    },[])
+   }, [])
 
     const{addProduct} = useContext(CartContext)
 
@@ -47,7 +45,7 @@ export default function SectionProducts(){
                         <h3>{`R$ ${product.price},00`}</h3>
 
                     </div>
-                    <button onClick={() => addProduct(product)} className="BtnAddProduct">ADICIONAR A SACOLA</button>
+                    <button onClick={() => addProduct(product) } className="BtnAddProduct">ADICIONAR A SACOLA</button>
                 </div>
 
                ))

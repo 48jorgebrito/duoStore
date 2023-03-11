@@ -20,11 +20,11 @@ import {Link} from 'react-router-dom'
 export default function CheckoutPagamento(){
     
     
-    const {dataUser, addresDataUser, frete} = useContext(AuthContext)
+    const {dataUser, addresDataUser} = useContext(AuthContext)
     const{rua, numero, bairro, complemento, cep, cidade, uf, destinat } = addresDataUser
     const{register, handleSubmit, setValue} = useForm()
-    
-   
+    const getFrete = localStorage.getItem("frete" )
+    const frete = JSON.parse(getFrete)
     //ATUALIZANDO PRODUTOS COM O AXIOS
     const addPost = async  (data )=> {  
         await Api.put(`/cadastro/${dataUser._id}`, data).then(()=>{

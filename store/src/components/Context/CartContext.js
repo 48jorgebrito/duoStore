@@ -1,44 +1,58 @@
+import { useEffect } from "react";
 import { createContext, useState } from "react";
+
 
 
 
 export const CartContext = createContext()
 
 export const CartProvider = ({children}) =>{
-    const [cart, setCart] = useState([])
+   
+   const [cart, setCart] = useState([])
     
-
-
-   const addProduct = (product)=>{
-        
-       
-    if( !cart.find((item) => item.id === product._id) ){
+    const getCart = localStorage.getItem("cart")
+    const getLocal = JSON.parse(getCart)
+    let add = []
+    if(getCart){
+        add = [...getLocal]
+    }
+    const cartList = [...add]
     
-        setCart([...cart, {
-            id: product._id,
-            name: product.name, 
-            size: product.size,
-            sex: product.sex,
-            price: product.price,
-            url: product.url
-        }])
+    useEffect(()=>{
+        setCart(cartList)
         
+    }, [])
+
+    const addProduct = (product) =>{
+        if(!cartList.find((item) => item.id === product._id)){
+
+            const dataProduct = {
+                id: product._id,
+                name: product.name, 
+                size: product.size,
+                sex: product.sex,
+                price: product.price,
+                url: product.url
+            }
+            cartList.push(dataProduct)
         }
-        
-       // localStorage.setItem("cart", JSON.stringify(cart))
-   }
+        localStorage.setItem("cart", JSON.stringify(cartList))
+        setCart(cartList)
+    }
+   
+    
+
 
    const removeProduct = (product) =>{
-
-    const filterProduct = cart.filter((item) => item.id !== product)
-    setCart(filterProduct)
-    
-    
+    const filterGetLocal = getLocal.filter((item)=> item.id !== product)
+    localStorage.setItem("cart", JSON.stringify(filterGetLocal))
+    setCart(filterGetLocal)
     
     
 }
 const clearCart = () => {
     setCart([])
+    localStorage.removeItem("cart")
 }
    
    

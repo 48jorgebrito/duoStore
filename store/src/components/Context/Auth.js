@@ -9,7 +9,7 @@ export const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     const [dataUser, setDataUser] = useState([])
     const [addresDataUser, setAddresDataUser] = useState([])
-    const [frete, Setfrete] = useState([])
+    
 
     useEffect(() => {
         const recoveredUser = localStorage.getItem('user')
@@ -38,7 +38,7 @@ export const AuthProvider = ({children}) => {
                          return
 
                      }
-         
+                     
                      
                  })
                  
@@ -47,6 +47,7 @@ export const AuthProvider = ({children}) => {
          }
 
     })
+    
     /* Função de Login*/
     const login = async (email, password) =>{
     
@@ -82,8 +83,7 @@ const logout = () =>{
                 logout,
                 dataUser,
                 addresDataUser,
-                Setfrete,
-                frete
+                
 
             }
             }> 

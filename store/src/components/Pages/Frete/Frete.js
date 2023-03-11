@@ -8,7 +8,7 @@ import { AiOutlineUser } from "react-icons/ai"
 import {BsCaretDown} from "react-icons/bs"
 import {ImLocation} from "react-icons/im"
 import { CartContext } from '../../Context/CartContext';
-import { Api } from '../../../config/Api'
+
 
 
 
@@ -19,16 +19,15 @@ import {Link, useNavigate} from "react-router-dom"
 export default function CheckoutEnd(){
     
     let navigate = useNavigate()
-    const {dataUser, addresDataUser, Setfrete} = useContext(AuthContext)
+    const {dataUser, addresDataUser} = useContext(AuthContext)
     const{rua, numero, bairro, complemento, cep, cidade, uf, destinat } = addresDataUser
     const{register, handleSubmit} = useForm()
     
    
     
     const addFret = (data) => {
-        Setfrete(data)
-        navigate("/checkout/pagamento")
-        console.log(data)
+       localStorage.setItem("frete", JSON.stringify(data))
+       navigate("/checkout/pagamento")
         
     }
 
