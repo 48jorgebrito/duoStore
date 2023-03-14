@@ -33,7 +33,7 @@ export default function Conta(){
                             <p>PEDIDOS</p> 
                         </div> 
                    
-                    <button className='Logout' onClick={logout}>Sair da conta</button>
+                    <button className='Logout' onClick={ logout }>Sair da conta</button>
                 </div>
 
                 <div className="InfoCount">

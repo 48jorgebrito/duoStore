@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect, } from "react"
 import { useNavigate } from "react-router-dom"
 import { Api, createSession } from "../../config/Api"
+
+
 export const AuthContext = createContext()
 
 export const AuthProvider = ({children}) => {
@@ -9,7 +11,7 @@ export const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     const [dataUser, setDataUser] = useState([])
     const [addresDataUser, setAddresDataUser] = useState([])
-    
+    const [cart, setCart] = useState([])
 
     useEffect(() => {
         const recoveredUser = localStorage.getItem('user')
@@ -68,8 +70,11 @@ export const AuthProvider = ({children}) => {
 const logout = () =>{
     localStorage.removeItem('user')
     localStorage.removeItem('token')
+    localStorage.removeItem("cart")
+   setCart([])
     setUser(null)
     navigate("/login")
+    
 }
 
 
@@ -83,6 +88,8 @@ const logout = () =>{
                 logout,
                 dataUser,
                 addresDataUser,
+                cart, 
+                setCart
                 
 
             }
