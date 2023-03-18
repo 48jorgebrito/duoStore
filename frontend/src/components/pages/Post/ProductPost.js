@@ -86,7 +86,7 @@ export default function ProductPost(){
             
 
             <label htmlFor="price">Preço</label>
-            <input type="number" id="price" name ="price" {...register("price")}/>
+            <input type="number" id="price" name ="price"  {...register("price")}/>
             <p className="error-message">{errors.price?.message}</p>
 
             <button type="submit" name="add">Adicionar</button>

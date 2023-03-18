@@ -3,9 +3,9 @@ const router = express.Router()
 const FinalUserController = require('../controllers/FinalUserController')
 const StoreSessionContoller = require('../controllers/StoreSessionContoller')
 const PedidosController = require('../controllers/PedidosController')
+
 const authRoutes = require('../middlewares/auth')
 
-const gnConfig = require('../GN_Config/gnConfig')
 
 
 router.post('/storesessions', StoreSessionContoller.create)
@@ -22,7 +22,7 @@ router.delete('/cadastro/:id', FinalUserController.destroy )
 router.get('/pedido/:user_id', PedidosController.list)
 router.post('/pedido/:user_id', PedidosController.create)
 
-//rotas de pagamento
+
 
 
 

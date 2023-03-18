@@ -1,8 +1,8 @@
 import './Pagamento.css'
 import HeaderPages from '../../layout/HeaderPages/HeaderPages'
 import FooterPage from '../../layout/FooterPage/FooterPage'
-import { useContext} from 'react'
-import {useForm}  from 'react-hook-form'
+import { useContext, useState} from 'react'
+import {get, useForm}  from 'react-hook-form'
 import { AuthContext } from '../../Context/Auth'
 import { AiOutlineUser } from "react-icons/ai"
 import {BsCaretDown} from "react-icons/bs"
@@ -19,22 +19,19 @@ import {Link} from 'react-router-dom'
 
 export default function CheckoutPagamento(){
     
-    
+    const [teste, setTeste] = useState()
     const {dataUser, addresDataUser} = useContext(AuthContext)
     const{rua, numero, bairro, complemento, cep, cidade, uf, destinat } = addresDataUser
+   
+   
     const{register, handleSubmit, setValue} = useForm()
+    
     const getFrete = localStorage.getItem("frete" )
     const frete = JSON.parse(getFrete)
-    //ATUALIZANDO PRODUTOS COM O AXIOS
-    const addPost = async  (data )=> {  
-        await Api.put(`/cadastro/${dataUser._id}`, data).then(()=>{
-            console.log("Endereço atualizado com sucesso")
-            
-        }).catch((error)=>{
-            console.log(error)
-        })
-    } 
-
+    const freteValue = frete.optionFret.split('|')
+    const freteLocal = freteValue[0]
+    const fretePreco = parseFloat(freteValue[1])
+    
 
     const {cart} = useContext(CartContext)
 
@@ -44,7 +41,12 @@ export default function CheckoutPagamento(){
          Total += item.price
      )
     })
+    const valorPedido = Total + fretePreco
+    const addPost = async (data)=> {  
+        //await Api.post('/pagamento', data)
+        console.log(data)
 
+    } 
     
     return(
         <div className='CheckoutPagamento'>
@@ -73,7 +75,7 @@ export default function CheckoutPagamento(){
                                 <strong>{`${destinat}`}</strong>
                                 <p>{`${rua}, ${numero} / ${complemento}`}</p>
                                 <p>{`CEP ${cep}, ${bairro} - ${cidade}/${uf}`}</p>
-                                <strong>{` ${frete.optionFret}`}</strong>
+                                <strong>{`Entega: ${freteLocal}`}</strong>
                             </div>
                         </div>
                         <Link to="/checkout/endereco/frete" className='inforEndEdit-Edit'>Editar</Link>
@@ -81,33 +83,33 @@ export default function CheckoutPagamento(){
 
                     <div className='endEntrega'>
                         <h1>SELECIONE A FORMA DE PAGAMENTO</h1>
-                        <form className='boxCheckbox'>
-                            
+                        <form className='boxCheckbox' onSubmit={handleSubmit(addPost)}>
+                        
                             <label className='checkboxSingle' id="pagamento">
                                 <div className='checkboxSingle-left'>
                                     <div className='checkboxSingle-input'>
-                                        <input type='radio' name='pagamento' required/>
+                                        <input type='radio' name='pagamento' {...register('valorCob')} value={valorPedido} required/>
                                     </div>  
                                     <div className='imgPaymentForm'>
                                         <img src={pix}/>
                                     </div>  
                                     <div>
                                         <strong>Pix</strong>
-                                        <p> R$ 100,00</p>
+                                        <p>{`R$ ${Total + fretePreco},00`}</p>
                                     </div>
                                 </div>
                             </label>
                             <label className='checkboxSingle' id='pagamento' required>
                                 <div className='checkboxSingle-left'>
                                     <div className='checkboxSingle-input'>
-                                        <input type='radio' name='pagamento'/>
+                                        <input type='radio' name='pagamento' {...register('valorCob')} value={valorPedido} />
                                     </div>  
                                     <div className='imgPaymentForm'>
                                         <img src={boletoIcon}/>
                                     </div>  
                                     <div>
-                                        <strong>Pix</strong>
-                                        <p> R$ 100,00</p>
+                                        <strong>Boleto</strong>
+                                        <p>{`R$ ${Total + fretePreco},00`}</p>
                                     </div>
                                 </div>
                             </label>
@@ -138,12 +140,12 @@ export default function CheckoutPagamento(){
                         <BsCaretDown className='caret'/>
                     </div>
                     <div className='inforItens'>
-                        <p>Taxas adicionais</p>
-                        <strong>R$ 5,00</strong>
+                        <p>Frete</p>
+                        <strong>{`R$ ${fretePreco},00`}</strong>
                     </div>
                     <div className='inforItens inforTotal'>
                         <strong>Total</strong>
-                        <strong>{`R$ ${Total},00`}</strong>
+                        <strong>{`R$ ${Total + fretePreco},00`}</strong>
                     </div>
                     
                     

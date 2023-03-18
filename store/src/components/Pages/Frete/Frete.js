@@ -84,7 +84,7 @@ export default function CheckoutEnd(){
                             <label className='checkboxSingle' id="frete">
                                 <div className='checkboxSingle-left'>
                                     <div className='checkboxSingle-input'>
-                                        <input type='radio' name='frete' {...register("optionFret")} value="retirar na loja" required />
+                                        <input type='radio' name='frete' {...register("optionFret")} value="retirar na loja|0" required />
                                     </div>    
                                     <div>
                                         <strong>Retirar na loja</strong>
@@ -96,7 +96,7 @@ export default function CheckoutEnd(){
                             <label className='checkboxSingle' id="frete">
                                 <div className='checkboxSingle-left'>
                                     <div className='checkboxSingle-input'>
-                                        <input type='radio' name='frete' {...register("optionFret")} value="Matinha, frete gratis"/>
+                                        <input type='radio' name='frete' {...register("optionFret")} value="Matinha - frete gratis|0"/>
                                     </div>    
                                     <div>
                                         <strong>Matinha</strong>
@@ -108,7 +108,7 @@ export default function CheckoutEnd(){
                             <label className='checkboxSingle' id="frete">
                                 <div className='checkboxSingle-left'>
                                     <div className='checkboxSingle-input'>
-                                        <input type='radio' name='frete' {...register("optionFret")} value="Olinda Nova,  R$ 15,00"/>
+                                        <input type='radio' name='frete' {...register("optionFret")} value="Olinda Nova|15"/>
                                     </div>    
                                     <div>
                                         <strong>Olinda Nova - MA</strong>
@@ -120,7 +120,7 @@ export default function CheckoutEnd(){
                             <label className='checkboxSingle' id="frete">
                                 <div className='checkboxSingle-left'>
                                     <div className='checkboxSingle-input'>
-                                        <input type='radio' name='frete' {...register("optionFret")} value="Viana,  R$ 15,00"/>
+                                        <input type='radio' name='frete' {...register("optionFret")} value="Viana|15"/>
                                     </div>    
                                     <div>
                                         <strong>Viana-MA</strong>
@@ -154,7 +154,7 @@ export default function CheckoutEnd(){
                     </div>
                     <div className='inforItens'>
                         <p>Taxas adicionais</p>
-                        <strong>R$ 5,00</strong>
+                        <strong>--</strong>
                     </div>
                     <div className='inforItens inforTotal'>
                         <strong>Total</strong>

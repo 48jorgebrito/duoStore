@@ -3,19 +3,20 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const cors = require('cors')
 const app = express()
-
-const routes = require('./src/routes/routes')
+const routesPag = require('./src/routes/Pagamento')
 const routesUser = require('./src/routes/FinalUsers')
-const routesPag = require('./src/GN_Config/gnConfig')
+const routes = require('./src/routes/routes')
+
 const path = require('path')
 //APP USE
 app.use(cors())
 app.use(express.json())
 app.use('/files', express.static(path.resolve(__dirname, 'uploads')))
 
-app.use(routesUser)
 app.use(routesPag)
+app.use(routesUser)
 app.use(routes)
+
 
 
 

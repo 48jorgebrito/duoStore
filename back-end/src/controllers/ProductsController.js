@@ -2,6 +2,7 @@ const Product = require('../models/Products')
 
  
 module.exports ={
+    
     async create(req, res){
         
         try{
