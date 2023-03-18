@@ -41,10 +41,14 @@ export default function CheckoutPagamento(){
          Total += item.price
      )
     })
+    const [qrCode, setQrCode] = useState()
     const valorPedido = Total + fretePreco
     const addPost = async (data)=> {  
-        //await Api.post('/pagamento', data)
-        console.log(data)
+        await Api.post('/pagamento', data).then((response)=> {
+            
+            setQrCode(response.data.imagemQrcode)
+        })
+        
 
     } 
     
@@ -150,7 +154,9 @@ export default function CheckoutPagamento(){
                     
                     
                 </div>
+
             </section>
+            <img src={qrCode} />
             <FooterPage/>
         </div>
     )

@@ -15,7 +15,7 @@ const validationPost = yup.object({
     name: yup.string().required("Informe o nome do produto"),
     size: yup.string().required(),
     sex: yup.string().required(),
-    price: yup.string().required("Infome o preço do produto"),
+    price: yup.number().required("Infome o preço do produto"),
 
     
 
@@ -86,7 +86,7 @@ export default function ProductPost(){
             
 
             <label htmlFor="price">Preço</label>
-            <input type="number" id="price" name ="price"  {...register("price")}/>
+            <input id="price" name ="price"  {...register("price")}/>
             <p className="error-message">{errors.price?.message}</p>
 
             <button type="submit" name="add">Adicionar</button>

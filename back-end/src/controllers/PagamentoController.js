@@ -22,11 +22,11 @@ module.exports = {
             solicitacaoPagador: "Valor total do seu pedido"
           }
           
-        
+  
           const cobResponse = await reqGN.post("/v2/cob", dataCob)
           const qrcodeResponse = await reqGN.get(`/v2/loc/${cobResponse.data.loc.id}/qrcode`)
           
-          res.json(cobResponse.data)
+          res.json(qrcodeResponse.data)
      
        
      }
