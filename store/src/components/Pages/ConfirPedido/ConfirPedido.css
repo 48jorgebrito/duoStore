@@ -1,0 +1,103 @@
+:root {
+    --primary: #282c31;
+    --secondary: #71cb1d;
+    --border: #ecedee;
+    --text: #868686;
+    --button-bg: #71cb1d;
+    --button-tx: #ffffff;
+}
+
+
+.confirPedido{
+    text-align: center;
+}
+.container_confirPedido{
+    max-width: 950px;
+    
+    margin: 0 auto;
+    padding: 50px 0;
+}
+.container_confirPedido h1{
+    margin: 5px 0 30px 0;
+    text-transform: uppercase;
+    color: #282c31;
+    font-weight: 600;
+}
+.boxIcon_confirmed{
+    border: 4px solid #37c593;
+    color: #37c593;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 30px;
+    margin: 0 auto;
+}
+.message_email{
+    background-color: #fff3cd;
+    padding:  15px  ;
+}
+.message_email p{
+   max-width: 46rem;
+   margin: 0 auto;
+}
+/*container_inforPedido*/
+
+.container_inforPedido{
+    padding: 30px;
+    box-shadow: 0 0 15px 0 rgb(0 0 0 / 15%);
+    margin: 0 auto;
+    margin-top: 30px;
+    max-width: 750px;
+}
+.inconPagamentoForm{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+.inforPagamento{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.inforPagamento_left{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.inforPagamentoName{
+    text-align: left;
+    color: #282c31;
+}
+.inforPagamento_right{
+    background-color: rgba(225,225,225,.5);
+    color: #282c31;
+    padding: 5px 20px;
+    border-radius: 30px;
+}
+.imgQrCode{
+    margin-top: 30px;
+}
+.box-copiaQrCode{
+    background-color: #f4f4f4;
+    margin-top: 30px;
+    padding: 15px 0;
+    color: #282c31;
+}
+
+.btn-Copiar,
+.title-copia{
+    font-weight:600;
+    padding: 15px 0;
+}
+.btn-Copiar{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.btn-Copiar:hover{
+    color:#282c318a;
+}

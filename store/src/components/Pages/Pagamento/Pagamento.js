@@ -1,8 +1,8 @@
 import './Pagamento.css'
 import HeaderPages from '../../layout/HeaderPages/HeaderPages'
 import FooterPage from '../../layout/FooterPage/FooterPage'
-import { useContext, useState} from 'react'
-import {get, useForm}  from 'react-hook-form'
+import { useContext} from 'react'
+import {useForm}  from 'react-hook-form'
 import { AuthContext } from '../../Context/Auth'
 import { AiOutlineUser } from "react-icons/ai"
 import {BsCaretDown} from "react-icons/bs"
@@ -14,17 +14,17 @@ import pix from '../../images/pix.svg'
 import boletoIcon from '../../images/boletoIcon.svg'
 import cartao from '../../images/cartao.svg'
 
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 
 export default function CheckoutPagamento(){
     
-    const [teste, setTeste] = useState()
+    let navigate = useNavigate()
     const {dataUser, addresDataUser} = useContext(AuthContext)
     const{rua, numero, bairro, complemento, cep, cidade, uf, destinat } = addresDataUser
    
    
-    const{register, handleSubmit, setValue} = useForm()
+    const{register, handleSubmit} = useForm()
     
     const getFrete = localStorage.getItem("frete" )
     const frete = JSON.parse(getFrete)
@@ -41,15 +41,17 @@ export default function CheckoutPagamento(){
          Total += item.price
      )
     })
-    const [qrCode, setQrCode] = useState()
+    
     const valorPedido = Total + fretePreco
-    const addPost = async (data)=> {  
-        await Api.post('/pagamento', data).then((response)=> {
-            
-            setQrCode(response.data.imagemQrcode)
-        })
-        
 
+    const addPost = async (data)=> {  
+       const response = await Api.post('/pagamento', data)
+            
+            localStorage.setItem('imagemQrcode', response.data.imagemQrcode)
+            localStorage.setItem('qrcode', response.data.qrcode)
+            localStorage.setItem('valorPedido', valorPedido)
+
+           navigate('/checkout/pagamento/confirmacao')
     } 
     
     return(
@@ -95,11 +97,11 @@ export default function CheckoutPagamento(){
                                         <input type='radio' name='pagamento' {...register('valorCob')} value={valorPedido} required/>
                                     </div>  
                                     <div className='imgPaymentForm'>
-                                        <img src={pix}/>
+                                        <img src={pix} alt='pix'/>
                                     </div>  
                                     <div>
                                         <strong>Pix</strong>
-                                        <p>{`R$ ${Total + fretePreco},00`}</p>
+                                        <p>{`R$ ${Total + fretePreco}`}</p>
                                     </div>
                                 </div>
                             </label>
@@ -109,11 +111,11 @@ export default function CheckoutPagamento(){
                                         <input type='radio' name='pagamento' {...register('valorCob')} value={valorPedido} />
                                     </div>  
                                     <div className='imgPaymentForm'>
-                                        <img src={boletoIcon}/>
+                                        <img src={boletoIcon} alt='boleto bancario'/>
                                     </div>  
                                     <div>
                                         <strong>Boleto</strong>
-                                        <p>{`R$ ${Total + fretePreco},00`}</p>
+                                        <p>{`R$ ${Total + fretePreco}`}</p>
                                     </div>
                                 </div>
                             </label>
@@ -124,10 +126,6 @@ export default function CheckoutPagamento(){
                         </form>
                     </div>
                 </div>
-                    
-                            
-
-
 
                 <div className='Box-inforUser'>
                     <div className='inforUser'>
@@ -149,14 +147,14 @@ export default function CheckoutPagamento(){
                     </div>
                     <div className='inforItens inforTotal'>
                         <strong>Total</strong>
-                        <strong>{`R$ ${Total + fretePreco},00`}</strong>
+                        <strong>{`R$ ${Total + fretePreco}`}</strong>
                     </div>
                     
                     
                 </div>
 
             </section>
-            <img src={qrCode} />
+            
             <FooterPage/>
         </div>
     )

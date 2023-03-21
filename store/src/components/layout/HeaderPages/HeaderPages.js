@@ -12,13 +12,13 @@ export default function HeaderPages(){
             </Link>
             <div className='ContactData'>
                 <div className='contacts'>
-                <RiWhatsappLine className='icons'/><p>(98) 98885-7306</p>
+                    <RiWhatsappLine className='icons'/><p>(98) 98885-7306</p>
                 </div>    
                 <div className='contacts'>
-                <MdOutlineMail className='icons'/>
-                <p>duoutlet@gmail.com</p>
+                    <MdOutlineMail className='icons'/>
+                    <p>duoutlet@gmail.com</p>
                 </div>    
-                <p>Segunda a sexta-feira: das 8:00 as 12:00 e das 14:00 as 19:00</p>
+                    <p>Segunda a sexta-feira: das 8:00 as 12:00 e das 14:00 as 19:00</p>
             </div>
         </div>
     )

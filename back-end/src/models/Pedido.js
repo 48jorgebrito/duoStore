@@ -5,8 +5,26 @@ const {Schema} = mongoose
 const pedidosSchema = new Schema({
         
         userId: String,
-        nome: String,
-        numero: Number
+        numeroPedido: Number,
+        pagamentType: String,
+        valorTotal: Number,
+       itens:{
+            namePedido:String,
+            size: String,
+            sex: String,
+            price:Number,
+            url: String
+       },
+        addres:{     
+            cep: Number,
+            destinat: String,
+            rua: String,
+            numero: Number,
+            complemento: String,
+            bairro: String,
+            cidade: String,
+            uf: String,
+        }
        
 }, {
     timestamps: true

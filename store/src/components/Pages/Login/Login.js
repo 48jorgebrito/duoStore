@@ -18,7 +18,7 @@ const validationPost = yup.object({
 
 export default function UserLogin(){
 
-    const {authenticated, login} = useContext(AuthContext)
+    const {login} = useContext(AuthContext)
 
     const{register, handleSubmit, formState :{errors}} = useForm({
         resolver:yupResolver(validationPost)

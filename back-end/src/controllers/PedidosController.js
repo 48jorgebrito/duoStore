@@ -1,6 +1,6 @@
 const Pedidos = require("../models/Pedido")
 const FinalUsers = require('../models/FinalUsers')
-
+const axios = require("axios");
 module.exports ={
     
     async list(req, res){
@@ -25,25 +25,45 @@ module.exports ={
     async create(req, res){
         try{
             const {user_id} = req.params
-            const {nome, numero} = req.body
-
+            const response = await axios.get(`http://localhost:8081/cadastro/${user_id}`)
             const user = await FinalUsers.findById(user_id)
-            
             if(!user){
                 return res.status(404).json({message: "usuario não existe"})
             }    
+            const {cep, destinat, rua, numero, complemento, bairro, cidade, uf} =  response.data.addres
+            const {numeroPedido, pagamentType, valorTotal, namePedido, size, price, sex, url} = req.body
+           
             const pedido = await Pedidos.findOne({
-                userId:user_id,
-                numero
+                userId: user_id,
+                numeroPedido, 
             })
+
             if(pedido){
                 return res.status(404).json({message:"pedido ja existe em sua lista"})
             }
 
             const pedidos = await Pedidos.create({
-                userId : user_id,
-                nome,
-                numero
+                userId:user_id,
+                numeroPedido,
+                pagamentType,
+                valorTotal,
+                itens:{
+                    namePedido,
+                    size,
+                    sex,
+                    price,
+                    url
+                },
+                addres:{     
+                    cep,
+                    destinat,
+                    rua,
+                    numero,
+                    complemento,
+                    bairro,
+                    cidade,
+                    uf,
+                }
 
             })
 

@@ -11,11 +11,13 @@
 .ContactData{
     color: #fff;
     font-size: 19px;
+    
 
 }
 .contacts {
     display: flex;
     align-items: center;
+    justify-content: right;
 }
 
 .contacts .icons{

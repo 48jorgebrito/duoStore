@@ -8,6 +8,7 @@ import Conta from '../Pages/Conta/Conta';
 import CheckoutEnd from '../Pages/CheckoutEnd/CheckoutEnd';
 import Frete from '../Pages/Frete/Frete';
 import Pagamento from '../Pages/Pagamento/Pagamento';
+import ConfirmPedido from "../Pages/ConfirPedido/ConfirPedido";
 
 import { useContext } from "react";
 import { AuthProvider, AuthContext } from "../Context/Auth";
@@ -45,6 +46,8 @@ export default function AppRoutes(){
                             <Route path='/checkout/endereco/edit' element={<Private> <CheckoutEnd/> </Private> }/>
                             <Route path='/checkout/endereco/frete' element={<Private> <Frete/> </Private> }/>
                             <Route path='/checkout/pagamento' element={<Private> <Pagamento/> </Private> }/>
+                            <Route path='/checkout/pagamento/confirmacao' element={<Private> <ConfirmPedido/> </Private> }/>
+                            
                             
                             
                         </Routes>

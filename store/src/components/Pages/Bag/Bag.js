@@ -63,7 +63,7 @@ export default function Bag(){
                                     <p className='Display'>1</p>
                                 <button><AiOutlinePlus/></button>
                             </div>
-                            <h2>{`R$ ${item.price},00`}</h2>
+                            <h2>{`R$ ${item.price}`}</h2>
                         </div>
                         <div className='Close'>
                             <AiOutlineClose onClick={() => removeProduct(item.id)}/>
@@ -81,7 +81,7 @@ export default function Bag(){
                     <div className='box-LineSubtotal'>
                         <div className='lineSubtotal'>
                             <p>Itens</p>
-                            <p className='finalPrice'>{`R$ ${subTotal},00`}</p>
+                            <p className='finalPrice'>{`R$ ${subTotal}`}</p>
                         </div>
                         <div className='lineSubtotal'>
                             <p>Frete</p>
@@ -89,7 +89,7 @@ export default function Bag(){
                         </div>  
                         <div className='lineSubtotal textSbtotal'>
                             <h2>SUBTOTAL</h2>
-                            <p className='finalPrice'>{`R$ ${subTotal},00`}</p>
+                            <p className='finalPrice'>{`R$ ${subTotal}`}</p>
                         </div>
 
                     </div>
@@ -111,7 +111,7 @@ export default function Bag(){
                             </div>
                             <div>
                                 <p>Pix</p> 
-                                <p className='finalPrice'>{`R$ ${subTotal},00`}</p>
+                                <p className='finalPrice'>{`R$ ${subTotal}`}</p>
                             </div>
                         </div>
                         <div className='paymentForm'>
@@ -120,7 +120,7 @@ export default function Bag(){
                             </div>
                             <div>
                                 <p>Boleto</p> 
-                                <p className='finalPrice'>{`R$ ${subTotal},00`}</p>
+                                <p className='finalPrice'>{`R$ ${subTotal}`}</p>
                             </div>
                         </div>
                         <div className='paymentForm'>
@@ -129,7 +129,7 @@ export default function Bag(){
                             </div>
                             <div>
                                 <p>Cartão</p> 
-                                <p className='finalPrice'>{`R$ ${subTotal},00`}</p>
+                                <p className='finalPrice'>{`R$ ${subTotal}`}</p>
                             </div>
                         </div>
                     </div>
