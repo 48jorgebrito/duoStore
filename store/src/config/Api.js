@@ -7,3 +7,4 @@ export const Api = axios.create({
 export const createSession = async(email, password) =>{{
     return Api.post('/storesessions', {email, password})
 }}
+

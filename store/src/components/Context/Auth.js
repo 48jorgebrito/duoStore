@@ -12,7 +12,7 @@ export const AuthProvider = ({children}) => {
     const [dataUser, setDataUser] = useState([])
     const [addresDataUser, setAddresDataUser] = useState([])
     const [cart, setCart] = useState([])
-
+    
     useEffect(() => {
         const recoveredUser = localStorage.getItem('user')
         const token = localStorage.getItem('token')
@@ -89,7 +89,8 @@ const logout = () =>{
                 dataUser,
                 addresDataUser,
                 cart, 
-                setCart
+                setCart,
+                
                 
 
             }

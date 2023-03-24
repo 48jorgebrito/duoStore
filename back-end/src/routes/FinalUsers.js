@@ -27,7 +27,4 @@ router.post('/pedido/:user_id', PedidosController.create)
 
 
 
-
-
-
 module.exports = router

@@ -4,6 +4,7 @@ import { AiOutlineUser } from "react-icons/ai"
 import { BiCabinet } from "react-icons/bi"
 import { FiUser } from "react-icons/fi"
 import { useContext} from 'react'
+import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../Context/Auth'
 import HeaderPages from "../../layout/HeaderPages/HeaderPages"
 export default function Conta(){
@@ -13,7 +14,10 @@ export default function Conta(){
     
     const{rua, numero, bairro, complemento, cep, cidade, uf } = addresDataUser
     
-    
+    const navigate = useNavigate()
+    const derection = ()=>{
+        navigate('/conta/pedidos')
+    }
    
   
     
@@ -21,6 +25,7 @@ export default function Conta(){
     return(
         <div className="Count">
             <HeaderPages/>
+            <button onClick={derection}>pedidos</button>
             <div className="CountContainer">
                 <div className="SideMenu">
                     

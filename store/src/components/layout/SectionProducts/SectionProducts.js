@@ -16,7 +16,7 @@ export default function SectionProducts(){
          
            setData(listData.data)
     })() 
-     
+    
    }, [])
 
     const{addProduct} = useContext(CartContext)
