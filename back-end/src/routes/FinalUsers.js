@@ -20,6 +20,7 @@ router.delete('/cadastro/:id', FinalUserController.destroy )
 
 // rotas de pedidos 
 router.get('/pedido/:user_id', PedidosController.list)
+router.get('/pedido', PedidosController.pedidoList)
 router.post('/pedido/:user_id', PedidosController.create)
 
 

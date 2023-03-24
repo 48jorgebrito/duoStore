@@ -25,35 +25,32 @@ module.exports ={
     async create(req, res){
         try{
             const {user_id} = req.params
-            const response = await axios.get(`http://localhost:8081/cadastro/${user_id}`)
+            const responseAddres = await axios.get(`http://localhost:8081/cadastro/${user_id}`)
             const user = await FinalUsers.findById(user_id)
             if(!user){
                 return res.status(404).json({message: "usuario não existe"})
-            }    
-            const {cep, destinat, rua, numero, complemento, bairro, cidade, uf} =  response.data.addres
-            const {numeroPedido, pagamentType, valorTotal, namePedido, size, price, sex, url} = req.body
-           
+            }
+            const {cep, destinat, rua, numero, complemento, bairro, cidade, uf} =  responseAddres.data.addres
+            const {pagamentType, valorTotal, itens} = req.body
+            const listPedido = await Pedidos.find()  
+            const numberPedido = listPedido.length + 1
+            
+
             const pedido = await Pedidos.findOne({
                 userId: user_id,
-                numeroPedido, 
+                numeroPedido: numberPedido
             })
-
+            
             if(pedido){
-                return res.status(404).json({message:"pedido ja existe em sua lista"})
+                return res.status(404).json({message:"pedido ja existe"})
             }
 
             const pedidos = await Pedidos.create({
                 userId:user_id,
-                numeroPedido,
+                numeroPedido: numberPedido,
                 pagamentType,
                 valorTotal,
-                itens:{
-                    namePedido,
-                    size,
-                    sex,
-                    price,
-                    url
-                },
+                itens,
                 addres:{     
                     cep,
                     destinat,
@@ -66,6 +63,7 @@ module.exports ={
                 }
 
             })
+            
 
             res.status(200).json({message: "pedido efetuado com sucesso"})
 
@@ -75,5 +73,11 @@ module.exports ={
         }
 
 
-    } 
+    },
+    async pedidoList(req, res){
+        const lista = await Pedidos.find()
+        
+        res.status(201).json(lista)
+    }
+
 }

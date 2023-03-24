@@ -35,8 +35,7 @@ export default function ProductPost(){
   const onSubmit = async (data) =>{
     
     const formData = new FormData()
-    
-    
+
     formData.append('name', data.name)
     formData.append('size', data.size)
     formData.append('sex', data.sex)
@@ -64,33 +63,33 @@ export default function ProductPost(){
             
 
             <label  htmlFor="name">Nome</label>
-            <input  type="text" id="name" name ="name" {...register("name")}/>
-            <p className="error-message">{errors.name?.message}</p>
+                <input  type="text" id="name" name ="name" {...register("name")}/>
+                <p className="error-message">{errors.name?.message}</p>
 
-            <label  htmlFor="name" className="Tamanho">Tamanho</label>
-            
-            <select name="size" placeholder="Tamanho" {...register('size')}>
-                <option value="P">P</option>
-                <option value="M">M</option>
-                <option value="G">G</option>
-                <option value="GG">GG</option>
-            </select>
-            
-
-            <label htmlFor="sex">Sexo</label>
-            <select name="sex" placeholder="Sexo" {...register('sex')}>
-                <option value="Masculino">Maculino</option>
-                <option value="Feminino">Feminino</option>
+                <label  htmlFor="name" className="Tamanho">Tamanho</label>
                 
-            </select>
-            
+                <select name="size" placeholder="Tamanho" {...register('size')}>
+                    <option value="P">P</option>
+                    <option value="M">M</option>
+                    <option value="G">G</option>
+                    <option value="GG">GG</option>
+                </select>
+                
 
-            <label htmlFor="price">Preço</label>
-            <input id="price" name ="price"  {...register("price")}/>
-            <p className="error-message">{errors.price?.message}</p>
-                <p></p>
-            <button type="submit" name="add">Adicionar</button>
-        </form> 
+                <label htmlFor="sex">Sexo</label>
+                <select name="sex" placeholder="Sexo" {...register('sex')}>
+                    <option value="Masculino">Maculino</option>
+                    <option value="Feminino">Feminino</option>
+                    
+                </select>
+                
+
+                <label htmlFor="price">Preço</label>
+                <input id="price" name ="price"  {...register("price")}/>
+                <p className="error-message">{errors.price?.message}</p>
+                    <p></p>
+                <button type="submit" name="add">Adicionar</button>
+            </form> 
         </div>
         
     )

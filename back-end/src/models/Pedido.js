@@ -8,13 +8,7 @@ const pedidosSchema = new Schema({
         numeroPedido: Number,
         pagamentType: String,
         valorTotal: Number,
-       itens:{
-            namePedido:String,
-            size: String,
-            sex: String,
-            price:Number,
-            url: String
-       },
+        itens:String,
         addres:{     
             cep: Number,
             destinat: String,

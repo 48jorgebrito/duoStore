@@ -10,7 +10,7 @@ export const CartContext = createContext()
 export const CartProvider = ({children}) =>{
    
     const{setCart, cart} = useContext(AuthContext)
-   
+    
     
     const getCart = localStorage.getItem("cart")
     const getLocal = JSON.parse(getCart)
@@ -21,10 +21,11 @@ export const CartProvider = ({children}) =>{
     const cartList = [...add]
     
     useEffect(()=>{
+        
         setCart(cartList)
         
     }, [])
-
+    
     const addProduct = (product) =>{
         if(!cartList.find((item) => item.id === product._id)){
 
@@ -40,6 +41,7 @@ export const CartProvider = ({children}) =>{
         }
         localStorage.setItem("cart", JSON.stringify(cartList))
         setCart(cartList)
+        
     }
    
     
@@ -64,5 +66,5 @@ const clearCart = () => {
         <CartContext.Provider value={{addProduct, removeProduct, clearCart, cart}}>
             {children}
         </CartContext.Provider>
-    )
+    ) 
 }

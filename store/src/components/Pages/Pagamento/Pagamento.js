@@ -22,6 +22,7 @@ export default function CheckoutPagamento(){
     let navigate = useNavigate()
     const {dataUser, addresDataUser} = useContext(AuthContext)
     const{rua, numero, bairro, complemento, cep, cidade, uf, destinat } = addresDataUser
+    
    
    
     const{register, handleSubmit} = useForm()
@@ -41,23 +42,30 @@ export default function CheckoutPagamento(){
          Total += item.price
      )
     })
-    
+    const itens = JSON.stringify(cart)
     const valorPedido = Total + fretePreco
-
+    const tipoPagamento = 'Pix'
     const addPost = async (data)=> {  
-       const response = await Api.post('/pagamento', data)
+        const response = await Api.post('/pagamento', data)
+       
+        
+        await Api.post(`/pedido/${dataUser._id}`, data)
             
+
             localStorage.setItem('imagemQrcode', response.data.imagemQrcode)
             localStorage.setItem('qrcode', response.data.qrcode)
             localStorage.setItem('valorPedido', valorPedido)
 
            navigate('/checkout/pagamento/confirmacao')
     } 
-    
+    const teste = async() => {
+       const pedidos = await Api.get(`/pedido/${dataUser._id}`)
+        console.log(pedidos.data)
+    }
     return(
         <div className='CheckoutPagamento'>
             <HeaderPages/>
-
+            <button onClick={teste}>teste</button>
             <section className='Container-CheckoutPagamento'>
                 <div>
 
@@ -90,7 +98,9 @@ export default function CheckoutPagamento(){
                     <div className='endEntrega'>
                         <h1>SELECIONE A FORMA DE PAGAMENTO</h1>
                         <form className='boxCheckbox' onSubmit={handleSubmit(addPost)}>
-                        
+                            <input className='input_displayNone' name='pagamentType' value={tipoPagamento} {...register('pagamentType')}/>
+                            <input className='input_displayNone' name='itens' value={itens} {...register('itens')}/>
+                            <input className='input_displayNone' name='valorTotal' value={valorPedido} {...register('valorTotal')}/>
                             <label className='checkboxSingle' id="pagamento">
                                 <div className='checkboxSingle-left'>
                                     <div className='checkboxSingle-input'>
