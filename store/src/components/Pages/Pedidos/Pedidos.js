@@ -11,9 +11,14 @@ export default function Pedidos(){
     const [listPedidos, setListPedidos] = useState([])
    
     const pedidos = listPedidos.filter((item)=>item.userId === dataUser._id )
- 
+   
+    const itensList = pedidos.map((item) =>{
+        return item.itens
+    })
+    
+
       useEffect( ()=>{
-        
+        console.log(itensList)
        let load = async ()=>{
           let response =  await Api.get(`/pedido`)
           setListPedidos(response.data)
@@ -34,6 +39,7 @@ export default function Pedidos(){
                     <div key={pedido._id}>
                         <p>{`N - ${pedido.numeroPedido}`}</p>
                         <p>{`R$ ${pedido.valorTotal}`}</p>
+                        <p>{`R$ ${pedido.addres.destinat}`}</p>
                         <br/>
                     </div>
                 ))
