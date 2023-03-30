@@ -50,7 +50,7 @@ module.exports ={
                 numeroPedido: numberPedido,
                 pagamentType,
                 valorTotal,
-                itens,
+                itens:JSON.parse(itens),
                 addres:{     
                     cep,
                     destinat,

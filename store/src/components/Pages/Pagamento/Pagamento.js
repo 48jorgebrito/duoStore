@@ -98,9 +98,9 @@ export default function CheckoutPagamento(){
                     <div className='endEntrega'>
                         <h1>SELECIONE A FORMA DE PAGAMENTO</h1>
                         <form className='boxCheckbox' onSubmit={handleSubmit(addPost)}>
-                            <input className='input_displayNone' name='pagamentType' value={tipoPagamento} {...register('pagamentType')}/>
-                            <input className='input_displayNone' name='itens' value={itens} {...register('itens')}/>
-                            <input className='input_displayNone' name='valorTotal' value={valorPedido} {...register('valorTotal')}/>
+                            <input type='hidden' name='pagamentType' value={tipoPagamento} {...register('pagamentType')}/>
+                            <input type='hidden' name='itens' value={itens} {...register('itens')}/>
+                            <input type='hidden' name='valorTotal' value={valorPedido} {...register('valorTotal')}/>
                             <label className='checkboxSingle' id="pagamento">
                                 <div className='checkboxSingle-left'>
                                     <div className='checkboxSingle-input'>

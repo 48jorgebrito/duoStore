@@ -1,3 +1,5 @@
-.container_pedidos{
-    
+.box_listItens{
+    background-color: red;
+    border: 2px solid black;
+    margin: 20px 0;
 }
