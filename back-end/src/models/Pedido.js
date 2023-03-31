@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+
+
 const {Schema} = mongoose
 
 const pedidosSchema = new Schema({
@@ -23,5 +25,6 @@ const pedidosSchema = new Schema({
 }, {
     timestamps: true
 })
+
 
 module.exports = mongoose.model("Pedidos", pedidosSchema)

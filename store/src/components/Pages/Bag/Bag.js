@@ -54,8 +54,8 @@ export default function Bag(){
                             <img src={item.url} alt='Imagem do Produto'/>
                         </div>
                         <div className='DescriptionProduct'>
-                        <h3>{`${item.name} / sex: ${item.sex} / tamanho: ${item.size}`}</h3>
-                        <p>{item.id}</p>
+                            <h3>{`${item.name} / sex: ${item.sex} / tamanho: ${item.size}`}</h3>
+                            <p>{item.id}</p>
                         </div>
                         <div className='PriceQtd'>
                             <div className='BtnQtd'>

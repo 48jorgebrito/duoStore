@@ -16,6 +16,9 @@ export default function Conta(){
     
     const navigate = useNavigate()
     const derection = ()=>{
+        navigate('/conta/ListPedidos')
+    }
+    const derectionPedidos = ()=>{
         navigate('/conta/pedidos')
     }
    
@@ -25,15 +28,15 @@ export default function Conta(){
     return(
         <div className="Count">
             <HeaderPages/>
-            <button onClick={derection}>pedidos</button>
+            
             <div className="CountContainer">
                 <div className="SideMenu">
                     
-                        <div className='BoxIcons'>
-                            <FiUser className='Icons'/> 
+                        <div className='BoxIcons' >
+                            <FiUser className='Icons active'/> 
                             <p>INFORMAÇÕES</p> 
                         </div> 
-                         <div className='BoxIcons'>
+                         <div className='BoxIcons' onClick={derection}> 
                             <BiCabinet className='Icons'/> 
                             <p>PEDIDOS</p> 
                         </div> 

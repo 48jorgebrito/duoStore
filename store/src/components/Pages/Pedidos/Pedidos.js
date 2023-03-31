@@ -30,7 +30,7 @@ export default function Pedidos(){
         
        },[])
        
-        const number = 0
+        
        
     return(
         <div className="container_pedidos">
@@ -38,18 +38,21 @@ export default function Pedidos(){
              {
                 pedidos.map((pedido) =>(
                     <div key={pedido._id}>
-                        <p>{`N - ${pedido.numeroPedido}`}</p>
-                        <p>{`R$ ${pedido.valorTotal}`}</p>
-                        <p>{`Destinatario: ${pedido.addres.destinat}`}</p>
+                        <p>{`PEDIDO N - ${pedido.numeroPedido}`}</p>
+                        <p>{`${pedido.createdAt}`}</p>
+
                         {
                             pedido.itens.map((item, index)=>(
                                 <div key={index} className='box_listItens'>
-                                    <img src={item.url}/>
-
-                                    <p>{item.name}</p>
-                                    <p>{item.size}</p>
-                                    <p>{item.sex}</p>
-                                    <p>{item.price}</p>
+                                    <div className='box-img'>
+                                        <img src={item.url}/>
+                                    </div>
+                                    
+                                    <div>
+                                        <h3>{`${item.name} / sex: ${item.sex} / tamanho: ${item.size}`}</h3>
+                                        
+                                        <p>{item.price}</p>
+                                    </div>
 
                                 </div>
                                 

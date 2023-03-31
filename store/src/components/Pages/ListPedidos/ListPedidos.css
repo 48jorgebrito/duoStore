@@ -1,0 +1,49 @@
+.pedidosList-Container{
+    display: flex;
+    padding: 50px;
+    width: 100%;
+    color: rgb(99, 96, 96);
+    
+}
+.SideMenu{
+    width: 20%;
+    
+
+}
+.SideMenu .Logout{
+    padding: 20px;
+    margin-left: -10px ;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    border: none;
+    background-color: transparent;
+}
+.SideMenu .Logout:hover{
+    color: rgba(99, 96, 96, 0.6);
+}
+.BoxIcons{
+    display: flex;
+    align-items:center ;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 25px 0;
+    cursor: pointer;
+    transition: .3s;
+    
+}
+.BoxIcons:hover{
+    opacity: .6;
+    
+}
+.BoxIcons .Icons{
+    font-size: 30px;
+    margin-right: 7px;
+    
+    
+}
+.BoxIcons .active{
+
+    color: #71cb1d;
+    
+}
