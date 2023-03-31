@@ -22,14 +22,14 @@ export default function PedidosList(){
     const derection = ()=>{
         navigate('/conta')
     }
+    
+    
     const{dataUser} = useContext(AuthContext) 
     const [listPedidos, setListPedidos] = useState([])
     
     const pedidos = listPedidos.filter((item)=>item.userId === dataUser._id )
    
     const listItens = pedidos.itens
-    
-    
     
       useEffect( ()=>{
         console.log(listItens)
@@ -40,8 +40,6 @@ export default function PedidosList(){
                
         }
         load()
-        
-        
        },[])
   
     
@@ -65,12 +63,27 @@ export default function PedidosList(){
                     <button className='Logout' onClick={ logout }>Sair da conta</button>
                 </div>
 
-                <div className="InfoCount">
-                   <h1>PEDIDOS</h1> 
-                   <div className='pedidosListContainer'>
-                        
-                        
-                   </div>
+                        <div className="InfoPedidos">
+                        <h1>PEDIDOS</h1> 
+                {
+                    pedidos.map((pedido)=>(
+                        <div className='pedidosSingle' key={pedido._id}>
+                                <div className='pedidosSingle-left'>
+                                    <BiCabinet className='icons'/>
+                                    <div>
+                                        <h3>{`N ${pedido.numeroPedido}`}</h3>
+                                        <p>{` ${pedido.createdAt}`}</p>
+                                    </div>
+
+                                </div> 
+                                <div className='pedidosSingle-right'>
+                                    <h3>{`R$ ${pedido.valorTotal}`}</h3>
+                                    <p>{`itens ${pedido.itens.length}`}</p>
+                                </div> 
+                                
+                        </div>
+                    ))
+                }
                 </div>
             </div>
             <FooterPage/>

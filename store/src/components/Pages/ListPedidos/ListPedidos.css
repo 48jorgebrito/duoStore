@@ -47,3 +47,38 @@
     color: #71cb1d;
     
 }
+.InfoPedidos{
+    border-left: 4px solid #71cb1d;
+    padding: 0 30px;
+    width: 80%;
+    
+}
+.InfoPedidos h1{
+    font-weight: 600; 
+   color: rgb(39, 39, 39);
+   padding-bottom: 40px;
+}
+
+.pedidosSingle{
+    
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+.pedidosSingle-left{
+    display: flex;
+    align-items: center;
+}
+.pedidosSingle-left .icons{
+    color: #71cb1d;
+    font-size: 40px;
+    font-weight: lighter;
+}
+.pedidosSingle-left div{
+    margin-left: 20px;
+}
+.pedidosSingle-right{
+    text-align: right;
+}
