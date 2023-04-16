@@ -130,6 +130,9 @@
 .BoxPedido .LineGreen{
     margin: 10px 0;
 }
+
+
+/*--------------Pedidos---------------------------------*/
 .NumPedido{
     width: 100%;
     display: flex;
@@ -157,5 +160,16 @@
     border-radius: 20px;
     border: none;
     font-size: 15px;
+    width: 100px;
+    text-align: center;
+    
+}
+.acessPedidos{
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+.acessPedidos:hover{
+    text-decoration: underline solid rgb(163, 162, 162);
     
 }

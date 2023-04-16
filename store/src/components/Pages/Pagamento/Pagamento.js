@@ -34,7 +34,7 @@ export default function CheckoutPagamento(){
     const fretePreco = parseFloat(freteValue[1])
     
 
-    const {cart} = useContext(CartContext)
+    const {cart, clearCart} = useContext(CartContext)
 
     let Total = 0
     cart.map((item) => {
@@ -57,15 +57,12 @@ export default function CheckoutPagamento(){
             localStorage.setItem('valorPedido', valorPedido)
 
            navigate('/checkout/pagamento/confirmacao')
+           clearCart()
     } 
-    const teste = async() => {
-       const pedidos = await Api.get(`/pedido/${dataUser._id}`)
-        console.log(pedidos.data)
-    }
     return(
         <div className='CheckoutPagamento'>
             <HeaderPages/>
-            <button onClick={teste}>teste</button>
+            
             <section className='Container-CheckoutPagamento'>
                 <div>
 
@@ -101,6 +98,8 @@ export default function CheckoutPagamento(){
                             <input type='hidden' name='pagamentType' value={tipoPagamento} {...register('pagamentType')}/>
                             <input type='hidden' name='itens' value={itens} {...register('itens')}/>
                             <input type='hidden' name='valorTotal' value={valorPedido} {...register('valorTotal')}/>
+                            <input type='hidden' name='fretePreco' value={fretePreco} {...register('fretePreco')}/>
+                            <input type='hidden' name='subTotal' value={Total} {...register('subTotal')}/>
                             <label className='checkboxSingle' id="pagamento">
                                 <div className='checkboxSingle-left'>
                                     <div className='checkboxSingle-input'>
@@ -147,15 +146,19 @@ export default function CheckoutPagamento(){
                             <p className='email'>{dataUser.email}</p>
                         </div>
                     </div>
-                    <div className='inforItens'>
+                    <div className='inforItens-pagamento'>
                         <p>{`${cart.length} item`}</p>
                         <BsCaretDown className='caret'/>
                     </div>
-                    <div className='inforItens'>
+                    <div className='inforItens-pagamento'>
+                        <p>Subtotal</p>
+                        <strong>{Total}</strong>
+                    </div>
+                    <div className='inforItens-pagamento'>
                         <p>Frete</p>
                         <strong>{`R$ ${fretePreco},00`}</strong>
                     </div>
-                    <div className='inforItens inforTotal'>
+                    <div className='inforItens-pagamento inforTotal'>
                         <strong>Total</strong>
                         <strong>{`R$ ${Total + fretePreco}`}</strong>
                     </div>

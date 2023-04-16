@@ -31,7 +31,7 @@ module.exports ={
                 return res.status(404).json({message: "usuario não existe"})
             }
             const {cep, destinat, rua, numero, complemento, bairro, cidade, uf} =  responseAddres.data.addres
-            const {pagamentType, valorTotal, itens} = req.body
+            const {pagamentType, valorTotal, itens, fretePreco, subTotal} = req.body
             const listPedido = await Pedidos.find()  
             const numberPedido = listPedido.length + 1
             
@@ -49,6 +49,8 @@ module.exports ={
                 userId:user_id,
                 numeroPedido: numberPedido,
                 pagamentType,
+                subTotal,
+                fretePreco,
                 valorTotal,
                 itens:JSON.parse(itens),
                 addres:{     

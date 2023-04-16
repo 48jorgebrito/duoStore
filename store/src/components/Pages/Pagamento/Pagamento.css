@@ -167,12 +167,15 @@
     align-items: center;
     
 }
-.inforItens{
+.inforItens-pagamento{
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid #ccc;
     padding: 15px 0;
 }
+.inforItens-pagamento:nth-child(2n){
+    border-bottom: 1px solid #ccc;
+}
+
 .caret{
     color: #71cb1d;
     cursor: pointer;

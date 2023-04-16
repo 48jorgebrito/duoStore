@@ -152,12 +152,9 @@ export default function CheckoutEnd(){
                         <p>{`${cart.length} item`}</p>
                         <BsCaretDown className='caret'/>
                     </div>
-                    <div className='inforItens'>
-                        <p>Taxas adicionais</p>
-                        <strong>--</strong>
-                    </div>
+
                     <div className='inforItens inforTotal'>
-                        <strong>Total</strong>
+                        <strong>Subtotal</strong>
                         <strong>{`R$ ${Total}`}</strong>
                     </div>
                     

@@ -15,9 +15,7 @@ export default function Conta(){
     const{rua, numero, bairro, complemento, cep, cidade, uf } = addresDataUser
     
     const navigate = useNavigate()
-    const derection = ()=>{
-        navigate('/conta/ListPedidos')
-    }
+    
     const derectionPedidos = ()=>{
         navigate('/conta/pedidos')
     }
@@ -36,7 +34,7 @@ export default function Conta(){
                             <FiUser className='Icons active'/> 
                             <p>INFORMAÇÕES</p> 
                         </div> 
-                         <div className='BoxIcons' onClick={derection}> 
+                         <div className='BoxIcons' onClick={derectionPedidos}> 
                             <BiCabinet className='Icons'/> 
                             <p>PEDIDOS</p> 
                         </div> 
@@ -49,7 +47,7 @@ export default function Conta(){
                    <div className='InfoCountContainer'>
                         <div className='UserDatas'>
                             <div className='UserAvatar'>< AiOutlineUser/></div>
-                            <h4>{dataUser.firstName}</h4>
+                            <h4>{`${dataUser.firstName} ${dataUser.lastName}`}</h4>
                             <p>{dataUser.email}</p>
                             <div className='BoxBtn'>
                                 <button className='EditData'>Editar dados</button>
@@ -68,7 +66,7 @@ export default function Conta(){
                             </div>
                         </div>
                         <div className='BoxPedido'>
-                            <h3>Últimos pedidos</h3>
+                            <h3>Último pedido</h3>
                             <div className='LineGreen'></div>
                             
                             <div className='NumPedido'>
@@ -81,9 +79,9 @@ export default function Conta(){
                             </div>
                             <div className='FormPagam'>
                                 <p>Boleto bancário</p>
-                                <button className='Status'>Enviado</button>
+                                <p className='Status'>Enviado</p>
                             </div>
-                            <p>Acessar todos os pedidos</p>
+                            <button className='acessPedidos' onClick={derectionPedidos}>Acessar todos os pedidos</button>
                         </div>
                    </div>
                 </div>

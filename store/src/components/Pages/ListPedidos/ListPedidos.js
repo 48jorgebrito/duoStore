@@ -17,20 +17,19 @@ import {VscClose} from 'react-icons/vsc'
 export default function PedidosList(){
     
     
-    const {logout} = useContext(AuthContext)
+    const {logout, dataUser} = useContext(AuthContext)
+    
     const navigate = useNavigate()
     const derection = ()=>{
         navigate('/conta')
     }
     
     
-    const{dataUser} = useContext(AuthContext) 
+    
     const [listPedidos, setListPedidos] = useState([])
     const pedidos = listPedidos.filter((item)=>item.userId === dataUser._id )
     
     useEffect( ()=>{
-        
-        
         let load = async ()=>{
             let response =  await Api.get(`/pedido`)
             setListPedidos(response.data)
@@ -48,6 +47,7 @@ export default function PedidosList(){
     const[pedidoSingle, setPedidoSingle] = useState([])
     const pedidoItens = (pedido)=>{
         setPedidoSingle(pedido)
+        
     }
 
     
@@ -70,22 +70,45 @@ export default function PedidosList(){
                             pedidoSingle.itens.map((item)=>(
                                 <div key={item._id} className='box_listItens'>
                                     <div className='box-img'>
-                                        <img src={item.url}/>
+                                        <img src={item.url} alt='imagem do pedido'/>
                                     </div>
                                     
-                                    <div>
+                                    <div className='descriptionItens'>
                                         <h4>{`${item.name} / sex: ${item.sex} / tamanho: ${item.size}`}</h4>
                                         <p>{item.price}</p>
                                     </div>
 
-                                </div>
-                                
+                                </div> 
                             ))
                             : ''
                         }
-                    
-                    
-                    
+                        {pedidoSingle.length !== 0? 
+                        
+                    <div className='footerpedido'>
+                        <div className='footerPedido-left'>
+                            <p>Entrega</p>
+                            <div>
+                                <strong>{pedidoSingle.addres.destinat}</strong>
+                                <p>{`${pedidoSingle.addres.rua}/${pedidoSingle.addres.numero}/${pedidoSingle.addres.complemento}`}</p>
+                                <p>{`${pedidoSingle.addres.cidade}/${pedidoSingle.addres.uf} - ${pedidoSingle.addres.cep}`}</p>
+                            </div> 
+                        </div>
+                        <div className='footerPedido-right'>
+                            <div>
+                                <p>Subtotal</p>
+                                <p className='dataValue'>{pedidoSingle.subTotal}</p>
+                            </div>
+                            <div>
+                                <p>frete</p>
+                                <p className='dataValue'>{`${pedidoSingle.fretePreco}.00`}</p>
+                            </div>
+                            <div className='total dataValue'>
+                                <p>Total</p>
+                                <p>{pedidoSingle.valorTotal}</p>
+                            </div>
+                        </div>
+                    </div>
+                        : ''}
                 </div>
             </div>
             <div className="pedidosList-Container">
