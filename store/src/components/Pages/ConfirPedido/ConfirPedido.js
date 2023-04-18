@@ -3,16 +3,24 @@ import {AiOutlineCheck} from 'react-icons/ai'
 import HeaderPages from '../../layout/HeaderPages/HeaderPages'
 import FooterPage from '../../layout/FooterPage/FooterPage'
 import pix from '../../images/pix.svg'
+import { PedidosContext } from '../../Context/PedidosContext'
+import { useContext } from 'react'
 
-
+import BtnHome from '../../layout/BtnHome/BtnHome'
 
 export default function ConfirmPedido(){
     
-    
+    const {lestPedido, confirmPedido} = useContext(PedidosContext)
+
     const getImagemQrcode = localStorage.getItem('imagemQrcode')
     const qrcode = localStorage.getItem('qrcode')
     const valorPedido = localStorage.getItem('valorPedido')
-
+    const teste = confirmPedido.map((item)=>{
+        return(
+            item.numeroPedido
+        )
+    })
+    
     return(
         <div className="confirPedido">
             <HeaderPages/>
@@ -20,7 +28,7 @@ export default function ConfirmPedido(){
                 <div className='boxIcon_confirmed'>
                     <AiOutlineCheck/>
                 </div>
-                <h1 className='name_Pedido'>Pedido #3534 concluido com sucesso</h1>
+                <h1 className='name_Pedido'>Pedido #{teste} concluido com sucesso</h1>
                 <div className='message_email'>
                     <p>
                         Você receberá um e-mail de confirmação 
@@ -60,10 +68,13 @@ export default function ConfirmPedido(){
                     </div>
 
                 </div>
-
+                
+                
+                
             </div>
-            
-            
+            <div className='BackHome'>
+                <BtnHome text='Continuar comprando'/>
+            </div>
             <FooterPage/>
         </div>
     )

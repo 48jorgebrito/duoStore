@@ -7,11 +7,17 @@ import { useContext} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../Context/Auth'
 import HeaderPages from "../../layout/HeaderPages/HeaderPages"
+import { PedidosContext } from '../../Context/PedidosContext'
+
+
+
+
+
 export default function Conta(){
     
     
     const {logout, dataUser, addresDataUser} = useContext(AuthContext)
-    
+    const {pedidos, lestPedido} = useContext(PedidosContext)
     const{rua, numero, bairro, complemento, cep, cidade, uf } = addresDataUser
     
     const navigate = useNavigate()
@@ -65,24 +71,31 @@ export default function Conta(){
                                 }
                             </div>
                         </div>
-                        <div className='BoxPedido'>
-                            <h3>Último pedido</h3>
-                            <div className='LineGreen'></div>
-                            
-                            <div className='NumPedido'>
-                                <p>Nº 9585</p>
-                                <p>R$ 656,35</p>
-                            </div>
-                            <div className='DatePedido'>
-                                <p>21/02/2022 - 16:02:46</p>
-                                <p>2 item</p>
-                            </div>
-                            <div className='FormPagam'>
-                                <p>Boleto bancário</p>
-                                <p className='Status'>Enviado</p>
-                            </div>
-                            <button className='acessPedidos' onClick={derectionPedidos}>Acessar todos os pedidos</button>
-                        </div>
+                        {
+                            lestPedido.map((item, index)=>(
+                                <div className='BoxPedido' key={index}>
+                                <h3>Último pedido</h3>
+                                <div className='LineGreen'></div>
+                                
+                                <div className='NumPedido'>
+                                    <p>{`Nº ${item.numeroPedido}`}</p>
+                                    <p>{`R$ ${item.valorTotal}`}</p>
+                                </div>
+                                <div className='DatePedido'>
+                                    <p>{` ${item.createdAt}`}</p>
+                                    <p>{`item ${item.itens.length}`}</p>
+                                </div>
+                                <div className='FormPagam'>
+                                    <p>Boleto bancário</p>
+                                    <p className='Status'>Enviado</p>
+                                </div>
+                                <button className='acessPedidos' onClick={derectionPedidos}>Acessar todos os pedidos</button>
+                            </div> 
+
+                            ))
+                        }
+                    
+                        
                    </div>
                 </div>
             </div>

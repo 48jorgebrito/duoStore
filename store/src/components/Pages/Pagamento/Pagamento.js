@@ -56,8 +56,9 @@ export default function CheckoutPagamento(){
             localStorage.setItem('qrcode', response.data.qrcode)
             localStorage.setItem('valorPedido', valorPedido)
 
-           navigate('/checkout/pagamento/confirmacao')
-           clearCart()
+            navigate('/checkout/pagamento/confirmacao')
+            window.location.reload()
+            clearCart()
     } 
     return(
         <div className='CheckoutPagamento'>

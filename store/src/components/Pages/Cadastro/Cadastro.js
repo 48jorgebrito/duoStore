@@ -3,8 +3,10 @@ import HeaderPages from '../../layout/HeaderPages/HeaderPages'
 import FooterPage from '../../layout/FooterPage/FooterPage'
 import { useNavigate } from 'react-router-dom'
 import {useForm}  from 'react-hook-form'
+import { useContext } from 'react'
 import { Api } from '../../../config/Api'
 
+import { CartContext } from '../../Context/CartContext'
 // IMPORTANDO O YUP RESOLVER PARA VALIDAR O FORMULARIO
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -24,6 +26,8 @@ const validationPost = yup.object({
 
 export default function Cadastro(){
     
+  
+
     let navigate = useNavigate()
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver:yupResolver(validationPost)
@@ -33,6 +37,7 @@ export default function Cadastro(){
         
         await Api.post('/cadastro', data)
         .then(()=>{
+            
             navigate('/modal')
         })
         .catch((error)=>{

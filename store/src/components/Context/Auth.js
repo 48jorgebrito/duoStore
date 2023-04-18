@@ -51,6 +51,8 @@ export const AuthProvider = ({children}) => {
     })
     
     /* Função de Login*/
+    const getCart = localStorage.getItem('cart')
+
     const login = async (email, password) =>{
     
     const response = await createSession(email, password) 
@@ -62,7 +64,16 @@ export const AuthProvider = ({children}) => {
     
     
         setUser(loggeUser)
-        navigate("/conta")
+        
+       
+        if(!getCart){
+            navigate("/conta")
+            
+        }else{
+            navigate('/bag')
+        }
+        
+        
         
    
 }
@@ -71,9 +82,10 @@ const logout = () =>{
     localStorage.removeItem('user')
     localStorage.removeItem('token')
     localStorage.removeItem("cart")
-   setCart([])
+    setCart([])
     setUser(null)
     navigate("/login")
+    window.location.reload()
     
 }
 

@@ -14,6 +14,7 @@ import ListPedidos from "../Pages/ListPedidos/ListPedidos";
 import { useContext } from "react";
 import { AuthProvider, AuthContext } from "../Context/Auth";
 import { CartProvider } from "../Context/CartContext";
+import { PedidosProvider } from "../Context/PedidosContext";
 
 export default function AppRoutes(){
 
@@ -34,26 +35,28 @@ export default function AppRoutes(){
         <div className="appRoutes">
             <Router>
                 <AuthProvider>
-                    <CartProvider>
+                    <PedidosProvider>
+                        <CartProvider>
 
-                        <Routes>
-                            <Route path='/' element={ <Home/>}/>
-                            <Route path='/login' element={<Login/>}/>
-                            <Route path='/bag' element={<Bag/>}/>
-                            <Route path='/cadastro' element={<Cadastro/>}/>
-                            <Route path='/modal' element={<Modal/>}/>
-                            
-                            {/*Rotas Privadas */}
-                            <Route path='/conta' element={<Private> <Conta/> </Private> }/>
-                            <Route path='/conta/pedidos' element={<Private> <ListPedidos/> </Private> }/>
-                            <Route path='/checkout/endereco/edit' element={<Private> <CheckoutEnd/> </Private> }/>
-                            <Route path='/checkout/endereco/frete' element={<Private> <Frete/> </Private> }/>
-                            <Route path='/checkout/pagamento' element={<Private> <Pagamento/> </Private> }/>
-                            <Route path='/checkout/pagamento/confirmacao' element={<Private> <ConfirmPedido/> </Private> }/>
-                            
-                        </Routes>
+                            <Routes>
+                                <Route path='/' element={ <Home/>}/>
+                                <Route path='/login' element={<Login/>}/>
+                                <Route path='/bag' element={<Bag/>}/>
+                                <Route path='/cadastro' element={<Cadastro/>}/>
+                                <Route path='/modal' element={<Modal/>}/>
+                                
+                                {/*Rotas Privadas */}
+                                <Route path='/conta' element={<Private> <Conta/> </Private> }/>
+                                <Route path='/conta/pedidos' element={<Private> <ListPedidos/> </Private> }/>
+                                <Route path='/checkout/endereco/edit' element={<Private> <CheckoutEnd/> </Private> }/>
+                                <Route path='/checkout/endereco/frete' element={<Private> <Frete/> </Private> }/>
+                                <Route path='/checkout/pagamento' element={<Private> <Pagamento/> </Private> }/>
+                                <Route path='/checkout/pagamento/confirmacao' element={<Private> <ConfirmPedido/> </Private> }/>
+                                
+                            </Routes>
                         
-                    </CartProvider>
+                        </CartProvider>
+                    </PedidosProvider>
                 </AuthProvider>
             </Router>
         </div>

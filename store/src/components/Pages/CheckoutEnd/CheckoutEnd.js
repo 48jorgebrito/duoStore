@@ -145,7 +145,7 @@ export default function CheckoutEnd(){
                     </div>
                     <div className='inforItens inforTotal'>
                         <strong>Total</strong>
-                        <strong>{`R$ ${Total},00`}</strong>
+                        <strong>{`R$ ${Total}`}</strong>
                     </div>
                     
                     

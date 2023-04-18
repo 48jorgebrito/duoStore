@@ -1,25 +1,25 @@
 import './Bag.css'
-import HeaderPages from "../../layout/HeaderPages/HeaderPages";
+import HeaderPages from "../../layout/HeaderPages/HeaderPages"
 import {Link} from "react-router-dom"
 import {BsEmojiFrown} from 'react-icons/bs'
 import {AiOutlineClose} from 'react-icons/ai'
 import {AiOutlinePlus} from 'react-icons/ai'
 import {AiOutlineMinus} from 'react-icons/ai'
 
-import { useContext} from 'react';
-import { CartContext } from '../../Context/CartContext';
+import { useContext} from 'react'
+import { CartContext } from '../../Context/CartContext'
 import { AuthContext } from '../../Context/Auth'
 import pix from '../../images/pix.svg'
 import boletoIcon from '../../images/boletoIcon.svg'
 import cartao from '../../images/cartao.svg'
 
 import FooterPage from '../../layout/FooterPage/FooterPage'
-
+import BtnHome from '../../layout/BtnHome/BtnHome'
 
 
 export default function Bag(){
     
-    const {cart ,removeProduct, clearCart} = useContext(CartContext)
+    const {cart, removeProduct} = useContext(CartContext)
     const {addresDataUser} = useContext(AuthContext)
     
     
@@ -74,9 +74,7 @@ export default function Bag(){
 
                 <div className='boxSubtotal'>
                     
-                    <div>
-                        <Link to='/' className='BtnStore'>Voltar para a loja</Link>
-                    </div>
+                    <BtnHome text='Voltar para a loja'/>
 
                     <div className='box-LineSubtotal'>
                         <div className='lineSubtotal'>
@@ -134,7 +132,7 @@ export default function Bag(){
                         </div>
                     </div>
                         <Link to={addresDataUser.length == 0? "/checkout/endereco/edit" : "/checkout/endereco/frete"}>
-                        <button className='btnFinal'>Finalizar compra</button>
+                            <button className='btnFinal'>Finalizar compra</button>
                         </Link>
                 </div>
             </div>

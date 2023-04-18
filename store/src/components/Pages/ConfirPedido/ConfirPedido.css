@@ -101,3 +101,9 @@
 .btn-Copiar:hover{
     color:#282c318a;
 }
+.BackHome{
+    margin: 0 auto;
+    max-width: 300px;
+    margin-bottom: 30px;
+
+}

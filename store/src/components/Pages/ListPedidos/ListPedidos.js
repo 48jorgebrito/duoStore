@@ -3,6 +3,7 @@ import HeaderPages from '../../layout/HeaderPages/HeaderPages'
 import { Api } from '../../../config/Api'
 import { useState, useContext, useEffect } from 'react'
 import { AuthContext } from '../../Context/Auth'
+import { PedidosContext } from '../../Context/PedidosContext'
 import FooterPage from '../../layout/FooterPage/FooterPage'
 
 
@@ -16,27 +17,13 @@ import {VscClose} from 'react-icons/vsc'
 
 export default function PedidosList(){
     
-    
-    const {logout, dataUser} = useContext(AuthContext)
+    const{pedidos} = useContext(PedidosContext) 
+    const {logout} = useContext(AuthContext)
     
     const navigate = useNavigate()
     const derection = ()=>{
         navigate('/conta')
     }
-    
-    
-    
-    const [listPedidos, setListPedidos] = useState([])
-    const pedidos = listPedidos.filter((item)=>item.userId === dataUser._id )
-    
-    useEffect( ()=>{
-        let load = async ()=>{
-            let response =  await Api.get(`/pedido`)
-            setListPedidos(response.data)
-            
-        }
-        load()
-    },[])
     
     const[modal, setModal] = useState(false)
     const openCloseModal = ()=>{
@@ -67,8 +54,8 @@ export default function PedidosList(){
                         </div>
                     </div>
                     {pedidoSingle.length !== 0?
-                            pedidoSingle.itens.map((item)=>(
-                                <div key={item._id} className='box_listItens'>
+                            pedidoSingle.itens.map((item, index)=>(
+                                <div key={index} className='box_listItens'>
                                     <div className='box-img'>
                                         <img src={item.url} alt='imagem do pedido'/>
                                     </div>
