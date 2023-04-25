@@ -9,9 +9,9 @@ export const CartContext = createContext()
 
 export const CartProvider = ({children}) =>{
    
+    const [search, setSearch] = useState('')
+
     const{setCart, cart} = useContext(AuthContext)
-    
-    
     const getCart = localStorage.getItem("cart")
     const getLocal = JSON.parse(getCart)
     let add = []
@@ -63,7 +63,7 @@ const clearCart = () => {
    
    
     return(
-        <CartContext.Provider value={{addProduct, removeProduct, clearCart, cart}}>
+        <CartContext.Provider value={{addProduct, removeProduct, clearCart, cart, search, setSearch}}>
             {children}
         </CartContext.Provider>
     ) 

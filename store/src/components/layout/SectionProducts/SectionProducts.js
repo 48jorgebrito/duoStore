@@ -7,26 +7,40 @@ import { CartContext } from '../../Context/CartContext';
 
 export default function SectionProducts(){
  
-    const [data, setData] = useState([])
-  
+    const [products, setProducts] = useState([])
+
   useEffect( ()=>{
    
     ( async ()=>{
       let listData =  await Api.get('/products')
          
-           setData(listData.data)
+        setProducts(listData.data)
     })() 
     
    }, [])
 
-    const{addProduct} = useContext(CartContext)
-
+    const{addProduct, search} = useContext(CartContext)
+    
+    const searchFilter = products.filter((product) => product.name === search)
+    const ProductList = (ele) =>{
+        if(ele.length !== 0 && search){
+            return(searchFilter)
+           
+        }else if(ele.length === 0){
+            return(products)
+        }
+    }
+    
     return(
         <div className='sectionProducts'>
            <div className='productsContainer'>
-               {
-               data.map((product) =>(
-                <div className='productsSingle' key={product._id} >
+               {searchFilter.length === 0 && search?
+               <div> 
+                   {`Não há nenhum produto com o nome ${search} em nossa loja `}
+               </div>
+               :
+               ProductList(searchFilter).map((product) =>(
+                <div className='productsSingle' key={product._id}>
                    
                     <div className='image'>
                         <img src={product.url} alt='camisa'/>
