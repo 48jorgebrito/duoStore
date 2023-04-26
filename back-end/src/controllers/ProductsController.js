@@ -6,23 +6,29 @@ module.exports ={
     async create(req, res){
         
         try{
-            const {name, size, sex, price} = req.body
+            const {grupo, categoria, subCategoria, name, size, sex, qntd, precoCusto, margemLucro, price,} = req.body
     
     
     if( req.file === undefined){
         console.log("selecione uma imagem")
         return
     }
-    const {filename : key, filename} = req.file
-    const url = `http://localhost:8081/files/${key}`
+    const {filename } = req.file
+    const url = `http://localhost:8081/files/${filename}`
     
     const product = { 
         name,
         size,
         sex,
-        price, 
         url,
-        filename
+        grupo, 
+        categoria, 
+        subCategoria,
+        qntd, 
+        precoCusto, 
+        margemLucro,
+        price, 
+        
     }
     if(!name || !size || !sex || !price ){
         res.status(500).json({message: 'precisa preencher todos os campos'})
