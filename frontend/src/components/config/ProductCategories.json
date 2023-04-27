@@ -1,0 +1,23 @@
+
+{
+    "grupo":["roupa", "acessorios"],
+    "categorias":{
+        "roupa":["camisa", "bermuda", "cueca"],
+        "acessorios":[ "carteira", "porta documentos", "bone"]
+    },
+    "subcategorias":{
+        "camisa":["regata", "camiseta", "mang longa", "gola polo"],
+        "bermuda":["jeans", "casual", "esportivo", "banho"],
+        "cueca":["boxer"],
+       
+        "carteira":["carteira"],
+        "porta documentos":["porta documentos"],
+        "bone":["bone"]
+
+    }
+
+    
+            
+
+    
+}

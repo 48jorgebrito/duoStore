@@ -4,22 +4,14 @@ import HeaderBack from "../../layout/HeaderBack/HeaderBack";
 import { useNavigate } from 'react-router-dom';
 
 import {api} from "../../config/apiAuth";
+import ProductCategories from "../../config/ProductCategories.json"
+import { useState } from "react";
 
 
 
-// IMPORTANDO O YUP RESOLVER PARA VALIDAR O FORMULARIO
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
 
-const validationPost = yup.object({
-    name: yup.string().required("Informe o nome do produto"),
-    size: yup.string().required(),
-    sex: yup.string().required(),
-    price: yup.number().required("Infome o preço do produto"),
 
-    
 
-  }).required();
 
 export default function ProductPost(){
 
@@ -27,14 +19,11 @@ export default function ProductPost(){
     let navigate = useNavigate()
 
     //PEGANDO OS VALORES DOS INPUT's COM O REACT-HOOK-FORM
-    const{register, handleSubmit, formState:{errors}}= useForm({
-        resolver:yupResolver(validationPost)
-    })
+    const{register, handleSubmit, formState:{errors}}= useForm()
     
     
   const onSubmit = async (data) =>{
-    
-    const formData = new FormData()
+     /*const formData = new FormData()
 
     formData.append('name', data.name)
     formData.append('size', data.size)
@@ -48,45 +37,79 @@ export default function ProductPost(){
     }).catch((error)=>{
 
         console.log(error)
-    })
+    })*/
 
+    console.log(data)
   }
-  
+    const [selectGrupo, setSelectGrupo] = useState('roupa')
+    const [selectCateg, setSelectCateg] = useState('camisa')
+    const [selecSubtCateg, setSelectSubCateg] = useState('regata')
+   
+    const {grupo, categorias, subcategorias} = ProductCategories
     
+    const categoriaList = categorias[selectGrupo]
+    const subcategoriaList = subcategorias[selectCateg]
+    
+    
+    console.log(subcategoriaList)
+   
+   
     return(
             
         <div>
             <HeaderBack/>
+        
+           
            <form className="form" onSubmit={handleSubmit(onSubmit)}>
-                <h1>Adicionar produto</h1>
-                <input required type="file" name="file" {...register("file")} />
-            
-
-                <label  htmlFor="name">Nome</label>
-                <input  type="text" id="name" name ="name" {...register("name")}/>
-                <p className="error-message">{errors.name?.message}</p>
-
-                <label  htmlFor="name" className="Tamanho">Tamanho</label>
+                <h1>{selectGrupo}</h1>
+                <input type="file" name="file" {...register("file")} />
                 
-                <select name="size" placeholder="Tamanho" {...register('size')}>
-                    <option value="P">P</option>
-                    <option value="M">M</option>
-                    <option value="G">G</option>
-                    <option value="GG">GG</option>
-                </select>
-                
-
-                <label htmlFor="sex">Sexo</label>
-                <select name="sex" placeholder="Sexo" {...register('sex')}>
-                    <option value="Masculino">Maculino</option>
-                    <option value="Feminino">Feminino</option>
+                <label  htmlFor="name" className="Tamanho">GRUPOS</label>
+                <select name="grupo" value={selectGrupo} {...register("grupo")} onChange={(event)=> setSelectGrupo(event.target.value)}>
+                    {
+                    grupo.map((item)=>(
+                    <option key={item}>
+                        {item}
+                    </option>
                     
+                    ))}
+                      
                 </select>
+                <label  htmlFor="name" className="Tamanho">CATEGORIAS</label>
+                <select name="categorias" value={selectCateg} {...register("categorias")} onChange={(event)=> setSelectCateg(event.target.value)}>
+                    {
+                    categoriaList.map((item, index)=>(
+                    <option key={index}>
+                        {item}
+                    </option>
+                    
+                    ))}
+                      
+                </select>
+                {
+                    
+                }
+                <select  name="subcategorias" value={selecSubtCateg} {...register("subcategorias")} onChange={(event)=> setSelectSubCateg(event.target.value)}>
                 
-
-                <label htmlFor="price">Preço</label>
-                <input id="price" name ="price"  {...register("price")}/>
-                <p className="error-message">{errors.price?.message}</p>
+                    {
+                        
+                    subcategoriaList.map((item)=>(
+                        
+                    <option  key={item}>
+                        {item}
+                    </option>
+                    
+                    ))}
+                      
+                </select>
+               
+                
+                
+                
+                
+                
+                
+                
                     <p></p>
                 <button type="submit" name="add">Adicionar</button>
             </form> 
