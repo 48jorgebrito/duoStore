@@ -1,6 +1,6 @@
 
 {
-    "grupo":["roupa", "acessorios"],
+    "grupos":["roupa", "acessorios"],
     "categorias":{
         "roupa":["camisa", "bermuda", "cueca"],
         "acessorios":[ "carteira", "porta documentos", "bone"]

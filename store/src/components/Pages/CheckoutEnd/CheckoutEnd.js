@@ -36,12 +36,13 @@ export default function CheckoutEnd(){
 
     const {cart} = useContext(CartContext)
 
-    let Total = 0
+    let somaValor = 0
     cart.map((item) => {
      return(
-         Total += item.price
+        somaValor += Number(item.price)
      )
     })
+    const subTotal = somaValor.toFixed(2)
 
    
     const cepCheck = async (e) => {
@@ -145,7 +146,7 @@ export default function CheckoutEnd(){
                     </div>
                     <div className='inforItens inforTotal'>
                         <strong>Total</strong>
-                        <strong>{`R$ ${Total}`}</strong>
+                        <strong>{`R$ ${subTotal}`}</strong>
                     </div>
                     
                     

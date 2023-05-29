@@ -35,15 +35,18 @@ export default function CheckoutPagamento(){
     
 
     const {cart, clearCart} = useContext(CartContext)
-
-    let Total = 0
+    
+    let somaValor = 0
     cart.map((item) => {
      return(
-         Total += item.price
+        somaValor += Number(item.price)
      )
     })
+    const subTotal = somaValor.toFixed(2)
+    const total = somaValor + fretePreco
+    const valorPedido = total.toFixed(2)
+
     const itens = JSON.stringify(cart)
-    const valorPedido = Total + fretePreco
     const tipoPagamento = 'Pix'
     const addPost = async (data)=> {  
         const response = await Api.post('/pagamento', data)
@@ -99,8 +102,8 @@ export default function CheckoutPagamento(){
                             <input type='hidden' name='pagamentType' value={tipoPagamento} {...register('pagamentType')}/>
                             <input type='hidden' name='itens' value={itens} {...register('itens')}/>
                             <input type='hidden' name='valorTotal' value={valorPedido} {...register('valorTotal')}/>
-                            <input type='hidden' name='fretePreco' value={fretePreco} {...register('fretePreco')}/>
-                            <input type='hidden' name='subTotal' value={Total} {...register('subTotal')}/>
+                            <input type='hidden' name='fretePreco' value={fretePreco.toFixed(2)} {...register('fretePreco')}/>
+                            <input type='hidden' name='subTotal' value={subTotal} {...register('subTotal')}/>
                             <label className='checkboxSingle' id="pagamento">
                                 <div className='checkboxSingle-left'>
                                     <div className='checkboxSingle-input'>
@@ -111,21 +114,21 @@ export default function CheckoutPagamento(){
                                     </div>  
                                     <div>
                                         <strong>Pix</strong>
-                                        <p>{`R$ ${Total + fretePreco}`}</p>
+                                        <p>{`R$ ${valorPedido}`}</p>
                                     </div>
                                 </div>
                             </label>
                             <label className='checkboxSingle' id='pagamento' required>
                                 <div className='checkboxSingle-left'>
                                     <div className='checkboxSingle-input'>
-                                        <input type='radio' name='pagamento' {...register('valorCob')} value={valorPedido} />
+                                        <input type='radio' name='pagamento' {...register('valorCob')} value={valorPedido} required/>
                                     </div>  
                                     <div className='imgPaymentForm'>
                                         <img src={boletoIcon} alt='boleto bancario'/>
                                     </div>  
                                     <div>
                                         <strong>Boleto</strong>
-                                        <p>{`R$ ${Total + fretePreco}`}</p>
+                                        <p>{`R$ ${valorPedido}`}</p>
                                     </div>
                                 </div>
                             </label>
@@ -153,7 +156,7 @@ export default function CheckoutPagamento(){
                     </div>
                     <div className='inforItens-pagamento'>
                         <p>Subtotal</p>
-                        <strong>{Total}</strong>
+                        <strong>{subTotal}</strong>
                     </div>
                     <div className='inforItens-pagamento'>
                         <p>Frete</p>
@@ -161,7 +164,7 @@ export default function CheckoutPagamento(){
                     </div>
                     <div className='inforItens-pagamento inforTotal'>
                         <strong>Total</strong>
-                        <strong>{`R$ ${Total + fretePreco}`}</strong>
+                        <strong>{`R$ ${valorPedido}`}</strong>
                     </div>
                     
                     

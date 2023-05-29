@@ -9,9 +9,9 @@ const pedidosSchema = new Schema({
         userId: String,
         numeroPedido: Number,
         pagamentType: String,
-        subTotal: Number,
-        fretePreco: Number,
-        valorTotal: Number,
+        subTotal: String,
+        fretePreco: String,
+        valorTotal: String,
         itens:Object,
         addres:{     
             cep: Number,

@@ -5,6 +5,7 @@ const path = require('path')
 const { promisify } = require('util')
 
 const Products = new mongoose.Schema({
+  url: String,
   grupo: String,
   categoria: String,
   subCategoria: String,
@@ -14,8 +15,7 @@ const Products = new mongoose.Schema({
   qntd: Number,
   precoCusto: Number,
   margemLucro: Number,
-  price: Number,
-  url: String,
+  price:String
     
 })
 

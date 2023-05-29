@@ -24,14 +24,13 @@ export default function Bag(){
     
     
    
-    let subTotal = 0
+    let somaValor = 0
         cart.map((item) => {
          return(
-             subTotal += item.price
+            somaValor += Number(item.price)
          )
         })
-        
-    
+    const subTotal = somaValor.toFixed(2)
     
    
     return(

@@ -6,7 +6,7 @@ module.exports ={
     async create(req, res){
         
         try{
-            const {grupo, categoria, subCategoria, name, size, sex, qntd, precoCusto, margemLucro, price,} = req.body
+            const {grupo, categoria, subCategoria, name, size, sex, qntd, precoCusto, margemLucro} = req.body
     
     
     if( req.file === undefined){
@@ -15,22 +15,26 @@ module.exports ={
     }
     const {filename } = req.file
     const url = `http://localhost:8081/files/${filename}`
+    const lucro = parseFloat(precoCusto) * ( parseFloat(margemLucro) / 100)
+    const precoVenda = parseFloat(precoCusto) + lucro
     
-    const product = { 
-        name,
-        size,
-        sex,
+    
+
+    const product = {
         url,
         grupo, 
         categoria, 
         subCategoria,
+        name,
+        size,
+        sex,
         qntd, 
         precoCusto, 
         margemLucro,
-        price, 
+        price:precoVenda.toFixed(2) 
         
     }
-    if(!name || !size || !sex || !price ){
+    if(!name || !size || !sex ){
         res.status(500).json({message: 'precisa preencher todos os campos'})
         return 
     }
@@ -80,13 +84,13 @@ module.exports ={
     
         const id = req.params.id
     
-        const {name, size, sex, price} = req.body
+        const {name, size, sex} = req.body
         
         const product = { 
             name,
             size,
             sex,
-            price,
+            
         }
     
            const updateProduct = await Product.updateOne({_id:id}, product) 

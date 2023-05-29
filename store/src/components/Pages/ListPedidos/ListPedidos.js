@@ -87,7 +87,7 @@ export default function PedidosList(){
                             </div>
                             <div>
                                 <p>frete</p>
-                                <p className='dataValue'>{`${pedidoSingle.fretePreco}.00`}</p>
+                                <p className='dataValue'>{`${pedidoSingle.fretePreco}`}</p>
                             </div>
                             <div className='total dataValue'>
                                 <p>Total</p>
